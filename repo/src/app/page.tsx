@@ -1,7 +1,7 @@
 export default function Home() {
   const serviceAreas = [
     "Pregnancy & birth support",
-    "Postpartum care",
+    "Postpartum support",
     "Fertility & preconception support",
     "Pregnancy and infant loss support",
     "Family transitions",
@@ -39,9 +39,9 @@ export default function Home() {
               className="max-w-3xl text-lg leading-8 sm:text-xl"
               style={{ color: "var(--muted-foreground)" }}
             >
-              RDDA connects Central Alberta families with trusted doula care,
+              RDDA connects Central Alberta families with trusted doula support,
               education, community resources, and supportive guidance through
-              birth, postpartum, family transitions, grief, and end-of-life care.
+              birth, postpartum, family transitions, grief, and end-of-life support.
             </p>
           </div>
 
@@ -84,7 +84,7 @@ export default function Home() {
               id="services-heading"
               className="mt-2 text-3xl font-semibold tracking-tight"
             >
-              Care pathways designed around real family needs.
+              Support pathways designed around real family needs.
             </h2>
           </div>
 
@@ -103,7 +103,7 @@ export default function Home() {
                 style={{ color: "var(--muted-foreground)" }}
               >
                 Supportive, respectful, and accessible guidance for families
-                navigating important life stages and care decisions.
+                navigating important life stages, questions, and support needs.
               </p>
             </article>
           ))}
@@ -136,10 +136,11 @@ export default function Home() {
               className="mt-4 max-w-3xl text-base leading-7"
               style={{ color: "var(--muted-foreground)" }}
             >
-              The RDDA platform is being built to make doula support easier to
-              understand, easier to access, and easier to maintain. This
-              baseline homepage keeps the experience simple while the production
-              system is developed in careful stages.
+              The RDDA platform is being built as a nonprofit association
+              resource that makes doula support easier to understand, easier to
+              access, and easier to maintain. This baseline homepage keeps the
+              experience simple while the production system is developed in
+              careful stages.
             </p>
           </div>
 
