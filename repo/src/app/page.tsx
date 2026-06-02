@@ -1,84 +1,169 @@
 export default function Home() {
+  const serviceAreas = [
+    "Pregnancy & birth support",
+    "Postpartum care",
+    "Fertility & preconception support",
+    "Pregnancy and infant loss support",
+    "Family transitions",
+    "End-of-life and grief support",
+  ];
+
   return (
-    <main className="min-h-screen bg-[#faf7f2] text-[#2f2a25]">
-      <section className="mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-center px-6 py-16 sm:px-10 lg:px-12">
-        <div className="max-w-3xl">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#8a5f45]">
-            Red Deer Doula Association
-          </p>
-
-          <h1 className="text-4xl font-semibold tracking-tight text-[#2f2a25] sm:text-5xl lg:text-6xl">
-            Compassionate doula support across life&apos;s transitions.
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-[#5f554d]">
-            RDDA is preparing a renewed digital platform to help Central Alberta
-            families connect with doula support, education, community resources,
-            events, and trusted guidance across the full human lifecycle.
-          </p>
-
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <a
-              href="mailto:info@reddeerdoula.com"
-              className="inline-flex items-center justify-center rounded-full bg-[#7a4f3a] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#633f2f] focus:outline-none focus:ring-2 focus:ring-[#7a4f3a] focus:ring-offset-2 focus:ring-offset-[#faf7f2]"
+    <main
+      className="min-h-screen px-6 py-8 sm:px-10 lg:px-16"
+      style={{
+        background: "var(--background)",
+        color: "var(--foreground)",
+      }}
+    >
+      <section className="mx-auto flex max-w-6xl flex-col gap-12">
+        <header className="flex flex-col gap-6 rounded-3xl border p-6 shadow-sm sm:p-8 lg:p-10"
+          style={{
+            background: "var(--card)",
+            borderColor: "var(--border)",
+          }}
+        >
+          <div className="flex flex-col gap-3">
+            <p
+              className="text-sm font-semibold uppercase tracking-[0.24em]"
+              style={{ color: "var(--primary)" }}
             >
-              Contact RDDA
+              Red Deer Doula Association
+            </p>
+
+            <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+              Holistic doula support across the full human lifecycle.
+            </h1>
+
+            <p
+              className="max-w-3xl text-lg leading-8 sm:text-xl"
+              style={{ color: "var(--muted-foreground)" }}
+            >
+              RDDA connects Central Alberta families with trusted doula care,
+              education, community resources, and supportive guidance through
+              birth, postpartum, family transitions, grief, and end-of-life care.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#services"
+              className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white transition"
+              style={{ background: "var(--primary)" }}
+            >
+              Explore support options
             </a>
 
             <a
-              href="#platform-preview"
-              className="inline-flex items-center justify-center rounded-full border border-[#c8b7a6] px-6 py-3 text-sm font-semibold text-[#3f352e] transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#7a4f3a] focus:ring-offset-2 focus:ring-offset-[#faf7f2]"
+              href="#connect"
+              className="inline-flex items-center justify-center rounded-full border px-6 py-3 text-sm font-semibold transition"
+              style={{
+                borderColor: "var(--border)",
+                color: "var(--foreground)",
+              }}
             >
-              View platform direction
+              Connect with RDDA
             </a>
           </div>
-        </div>
+        </header>
 
-        <div
-          id="platform-preview"
-          className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
-          aria-label="RDDA platform direction"
+        <section
+          id="services"
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          aria-labelledby="services-heading"
         >
-          <article className="rounded-3xl border border-[#eadfd5] bg-white/75 p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-[#2f2a25]">
-              Lifecycle Support
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-[#6b625b]">
-              Support pathways for pregnancy, birth, postpartum, grief, family
-              transitions, and end-of-life care.
+          <div className="sm:col-span-2 lg:col-span-3">
+            <p
+              className="text-sm font-semibold uppercase tracking-[0.22em]"
+              style={{ color: "var(--primary)" }}
+            >
+              Lifecycle support
             </p>
-          </article>
 
-          <article className="rounded-3xl border border-[#eadfd5] bg-white/75 p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-[#2f2a25]">
-              Find a Doula
+            <h2
+              id="services-heading"
+              className="mt-2 text-3xl font-semibold tracking-tight"
+            >
+              Care pathways designed around real family needs.
             </h2>
-            <p className="mt-3 text-sm leading-6 text-[#6b625b]">
-              A future directory experience designed to help families discover
-              trusted local doula professionals.
-            </p>
-          </article>
+          </div>
 
-          <article className="rounded-3xl border border-[#eadfd5] bg-white/75 p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-[#2f2a25]">
-              Resources
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-[#6b625b]">
-              Educational content and community guidance organized around real
-              family needs and emotional support.
-            </p>
-          </article>
+          {serviceAreas.map((service) => (
+            <article
+              key={service}
+              className="rounded-2xl border p-5 shadow-sm"
+              style={{
+                background: "var(--card)",
+                borderColor: "var(--border)",
+              }}
+            >
+              <h3 className="text-lg font-semibold">{service}</h3>
+              <p
+                className="mt-3 text-sm leading-6"
+                style={{ color: "var(--muted-foreground)" }}
+              >
+                Supportive, respectful, and accessible guidance for families
+                navigating important life stages and care decisions.
+              </p>
+            </article>
+          ))}
+        </section>
 
-          <article className="rounded-3xl border border-[#eadfd5] bg-white/75 p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-[#2f2a25]">
-              Events
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-[#6b625b]">
-              A future event system for workshops, learning opportunities,
-              community gatherings, and member activities.
+        <section
+          className="grid gap-6 rounded-3xl border p-6 sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:p-10"
+          style={{
+            background: "var(--card)",
+            borderColor: "var(--border)",
+          }}
+          aria-labelledby="approach-heading"
+        >
+          <div>
+            <p
+              className="text-sm font-semibold uppercase tracking-[0.22em]"
+              style={{ color: "var(--primary)" }}
+            >
+              Our approach
             </p>
-          </article>
-        </div>
+
+            <h2
+              id="approach-heading"
+              className="mt-2 text-3xl font-semibold tracking-tight"
+            >
+              A calm, accessible starting point for finding the right support.
+            </h2>
+
+            <p
+              className="mt-4 max-w-3xl text-base leading-7"
+              style={{ color: "var(--muted-foreground)" }}
+            >
+              The RDDA platform is being built to make doula support easier to
+              understand, easier to access, and easier to maintain. This
+              baseline homepage keeps the experience simple while the production
+              system is developed in careful stages.
+            </p>
+          </div>
+
+          <div
+            id="connect"
+            className="rounded-2xl border p-5"
+            style={{
+              borderColor: "var(--border)",
+              background: "var(--background)",
+            }}
+          >
+            <h3 className="text-xl font-semibold">Built for future growth</h3>
+
+            <ul
+              className="mt-4 space-y-3 text-sm leading-6"
+              style={{ color: "var(--muted-foreground)" }}
+            >
+              <li>Accessible public information architecture</li>
+              <li>Future doula directory support</li>
+              <li>Future events and resources system</li>
+              <li>Future member and admin workflows</li>
+            </ul>
+          </div>
+        </section>
       </section>
     </main>
   );
