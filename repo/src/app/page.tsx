@@ -1,4 +1,5 @@
 ﻿import { PageShell } from "@/components/layout/PageShell";
+import { PageContainer } from "@/components/layout/PageContainer";
 
 export default function Home() {
   const serviceAreas = [
@@ -19,7 +20,7 @@ export default function Home() {
           color: "var(--foreground)",
         }}
       >
-        <div className="mx-auto flex max-w-6xl flex-col gap-12">
+        <PageContainer>
           <header
             className="flex flex-col gap-6 rounded-3xl border p-6 shadow-sm sm:p-8 lg:p-10"
             style={{
@@ -169,7 +170,7 @@ export default function Home() {
               </ul>
             </div>
           </section>
-        </div>
+        </PageContainer>
       </main>
     </PageShell>
   );
