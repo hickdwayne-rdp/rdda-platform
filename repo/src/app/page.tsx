@@ -18,11 +18,10 @@ export default function Home() {
         <PageContainer>
           <HomeHeroSection />
           <HomeServiceAreasSection />
-                  <HomeWhoRddaSupportsSection />
-<HomeApproachSection />
+          <HomeWhoRddaSupportsSection />
+          <HomeApproachSection />
         </PageContainer>
       </main>
     </PageShell>
   );
 }
-
