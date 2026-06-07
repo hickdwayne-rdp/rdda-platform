@@ -3,6 +3,7 @@ import { PageShell } from "@/components/layout/PageShell";
 import { HomeApproachSection } from "@/components/sections/HomeApproachSection";
 import { HomeHeroSection } from "@/components/sections/HomeHeroSection";
 import { HomeServiceAreasSection } from "@/components/sections/HomeServiceAreasSection";
+import { HomeWhoRddaSupportsSection } from "@/components/sections/HomeWhoRddaSupportsSection";
 
 export default function Home() {
   return (
@@ -17,9 +18,11 @@ export default function Home() {
         <PageContainer>
           <HomeHeroSection />
           <HomeServiceAreasSection />
-          <HomeApproachSection />
+                  <HomeWhoRddaSupportsSection />
+<HomeApproachSection />
         </PageContainer>
       </main>
     </PageShell>
   );
 }
+
