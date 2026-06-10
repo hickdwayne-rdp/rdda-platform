@@ -1,12 +1,10 @@
+import { SectionCard } from "@/components/ui/SectionCard";
+
 export function HomeApproachSection() {
   return (
-    <section
-      className="grid gap-6 rounded-3xl border p-6 sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:p-10"
-      style={{
-        background: "var(--card)",
-        borderColor: "var(--border)",
-      }}
-      aria-labelledby="approach-heading"
+    <SectionCard
+      className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]"
+      ariaLabelledBy="approach-heading"
     >
       <div>
         <p
@@ -54,6 +52,6 @@ export function HomeApproachSection() {
           <li>Future member and admin workflows</li>
         </ul>
       </div>
-    </section>
+    </SectionCard>
   );
 }

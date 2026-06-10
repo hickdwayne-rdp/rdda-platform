@@ -1,3 +1,5 @@
+import { SectionCard } from "@/components/ui/SectionCard";
+
 const supportGroups = [
   {
     title: "Families seeking support",
@@ -18,13 +20,7 @@ const supportGroups = [
 
 export function HomeWhoRddaSupportsSection() {
   return (
-    <section
-      className="rounded-3xl border p-6 shadow-sm sm:p-8 lg:p-10"
-      style={{
-        background: "var(--card)",
-        borderColor: "var(--border)",
-      }}
-    >
+    <SectionCard>
       <div className="flex flex-col gap-4">
         <p
           className="text-sm font-semibold uppercase tracking-[0.2em]"
@@ -64,6 +60,6 @@ export function HomeWhoRddaSupportsSection() {
           </article>
         ))}
       </div>
-    </section>
+    </SectionCard>
   );
 }
