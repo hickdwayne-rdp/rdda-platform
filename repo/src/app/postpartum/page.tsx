@@ -16,7 +16,7 @@ const postpartumSupportAreas = [
   {
     title: "Practical support",
     description:
-      "General, non-medical help that supports rest, household adjustment, and family routines, depending on the individual doula's services.",
+      "General, non-medical help that supports rest, household adjustment, and family routines, depending on the individual doula&apos;s services.",
   },
   {
     title: "Family-centred support",
@@ -33,7 +33,7 @@ const earlyTransitionItems = [
 
 const householdSupportItems = [
   "General organization that helps the household feel more supported during adjustment after birth.",
-  "Rest-supportive routines and light practical help, depending on the individual doula's services and boundaries.",
+  "Rest-supportive routines and light practical help, depending on the individual doula&apos;s services and boundaries.",
   "Planning conversations about family needs, communication preferences, support people, and practical next steps.",
 ];
 
@@ -141,7 +141,7 @@ export default function PostpartumPage() {
                 Practical household support
               </p>
               <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Practical support depends on the individual doula's services and boundaries
+                Practical support depends on the individual doula&apos;s services and boundaries
               </h2>
               <p className="leading-7 text-muted-foreground">
                 Practical support may help the household feel more supported
@@ -282,3 +282,4 @@ export default function PostpartumPage() {
     </PageShell>
   );
 }
+
