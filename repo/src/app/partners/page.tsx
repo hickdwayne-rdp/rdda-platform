@@ -105,7 +105,7 @@ export default function PartnersPage() {
                   Public education first
                 </h2>
                 <p className="leading-7 text-muted-foreground">
-                  Community partners may connect with RDDA's public role through
+                  Community partners may connect with RDDA&apos;s public role through
                   shared awareness, clearer communication, and respectful local
                   understanding. This page keeps those conversations broad,
                   non-urgent, and boundary-aware.
