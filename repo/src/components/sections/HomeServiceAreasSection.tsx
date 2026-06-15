@@ -41,12 +41,11 @@ export function HomeServiceAreasSection() {
         <Link
           key={service.href}
           href={service.href}
-          className="block rounded-2xl border p-5 shadow-sm transition hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+          className="block rounded-2xl border p-5 shadow-sm transition hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
           style={{
             background: "var(--card)",
             borderColor: "var(--border)",
             color: "var(--foreground)",
-            outlineColor: "var(--focus-ring)",
           }}
         >
           <h3 className="text-lg font-semibold">{service.label}</h3>
