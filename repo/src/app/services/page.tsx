@@ -1,6 +1,22 @@
+import Link from "next/link";
+
 import { PageContainer } from "@/components/layout/PageContainer";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionCard } from "@/components/ui/SectionCard";
+
+type LifecycleServiceArea = {
+  label: string;
+  href: string;
+};
+
+const lifecycleServiceAreas: LifecycleServiceArea[] = [
+  { label: "Pregnancy & birth support", href: "/birth" },
+  { label: "Postpartum support", href: "/postpartum" },
+  { label: "Fertility & preconception support", href: "/fertility" },
+  { label: "Pregnancy and infant loss support", href: "/loss" },
+  { label: "Family transitions", href: "/family-transitions" },
+  { label: "End-of-life and grief support", href: "/end-of-life-grief" },
+];
 
 export const metadata = {
   title: "Services | Red Deer Doula Association",
@@ -89,6 +105,54 @@ export default function ServicesPage() {
                 </p>
               </div>
             </SectionCard>
+          </section>
+
+          <section
+            className="space-y-6"
+            aria-labelledby="lifecycle-service-areas-heading"
+          >
+            <div className="max-w-3xl space-y-4">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                Lifecycle service areas
+              </p>
+
+              <h2
+                id="lifecycle-service-areas-heading"
+                className="text-3xl font-semibold tracking-tight text-foreground"
+              >
+                Explore support across specific life stages.
+              </h2>
+
+              <p className="leading-7 text-muted-foreground">
+                These static pages provide more detail about RDDA-recognized
+                support areas while keeping information general, non-medical,
+                and source-aligned.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {lifecycleServiceAreas.map((serviceArea) => (
+                <Link
+                  key={serviceArea.href}
+                  href={serviceArea.href}
+                  className="block rounded-2xl border p-5 shadow-sm transition hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+                  style={{
+                    background: "var(--card)",
+                    borderColor: "var(--border)",
+                    color: "var(--foreground)",
+                  }}
+                >
+                  <h3 className="text-lg font-semibold">{serviceArea.label}</h3>
+
+                  <p
+                    className="mt-4 text-sm font-semibold"
+                    style={{ color: "var(--primary)" }}
+                  >
+                    Learn more
+                  </p>
+                </Link>
+              ))}
+            </div>
           </section>
 
           <section>
