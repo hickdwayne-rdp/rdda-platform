@@ -1,4 +1,5 @@
-﻿import type { ReactNode } from "react";
+import type { ReactNode } from "react";
+import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
 
 export interface PageShellProps {
@@ -10,6 +11,7 @@ export function PageShell({ children }: PageShellProps) {
     <div className="min-h-screen">
       <SiteHeader />
       {children}
+      <SiteFooter />
     </div>
   );
 }
