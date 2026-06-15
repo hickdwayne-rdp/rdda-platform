@@ -16,12 +16,12 @@ const lossSupportAreas = [
   {
     title: "Practical support",
     description:
-      "General support around communication, planning, household needs, routines, appointments, or support people, depending on the individual doula&apos;s scope and services.",
+      "General support around communication, planning, household needs, routines, appointments, or support people, depending on the individual doula's scope and services.",
   },
   {
     title: "Family-centred support",
     description:
-      "Support that respects the family&apos;s values, privacy, culture, relationships, children, household context, and chosen support people.",
+      "Support that respects the family's values, privacy, culture, relationships, children, household context, and chosen support people.",
   },
 ];
 
