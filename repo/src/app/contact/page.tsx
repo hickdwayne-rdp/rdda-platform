@@ -87,7 +87,7 @@ export default function ContactPage() {
               <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
                 Red Deer Doula Association uses public contact as a non-urgent
                 starting point for general questions, community connection, and
-                clearer understanding of RDDA's public-facing information. This
+                clearer understanding of RDDA&apos;s public-facing information. This
                 page explains appropriate contact expectations without becoming a
                 form, intake pathway, referral workflow, booking system, or
                 crisis-response tool.
@@ -229,7 +229,7 @@ export default function ContactPage() {
                   Urgent and specialized needs require appropriate supports
                 </h2>
                 <p className="leading-7 text-muted-foreground">
-                  RDDA's public contact orientation should not be used for urgent
+                  RDDA&apos;s public contact orientation should not be used for urgent
                   support, emergency help, safety response, professional advice,
                   or specialized assessment. Those needs require appropriate
                   qualified services, emergency supports, or responsible public
@@ -255,7 +255,7 @@ export default function ContactPage() {
                   A careful contact page helps families, doulas, community
                   members, and partners understand how to approach RDDA with
                   non-urgent questions. It supports clear communication while
-                  preserving RDDA's static public education role and appropriate
+                  preserving RDDA&apos;s static public education role and appropriate
                   professional boundaries.
                 </p>
               </div>
