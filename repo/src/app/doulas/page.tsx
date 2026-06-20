@@ -25,12 +25,12 @@ const doulaSupportAreas = [
     eyebrow: "Collaboration",
     title: "Community-centred support",
     description:
-      "Doulas are part of a wider support network for families and communities. RDDA&apos;s public site introduces that role without adding dynamic systems, account features, CMS reads, or database logic.",
+      "Doulas are part of a wider support network for families and communities. RDDA's public site introduces that role without adding dynamic systems, account features, CMS reads, or database logic.",
   },
 ];
 
 const staticScopeItems = [
-  "Introduces RDDA&apos;s relationship to doulas.",
+  "Introduces RDDA's relationship to doulas.",
   "Uses only static, informational route content.",
   "Uses the existing PageShell, PageContainer, and SectionCard primitives.",
   "Preserves the frozen homepage and existing public routes.",
