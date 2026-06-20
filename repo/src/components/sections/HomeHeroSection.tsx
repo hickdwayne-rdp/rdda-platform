@@ -38,8 +38,11 @@ export function HomeHeroSection() {
           <div className="flex flex-col gap-3 sm:flex-row">
             <a
               href="#services"
-              className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[var(--primary-hover)]"
-              style={{ background: "var(--primary)" }}
+              className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold shadow-sm transition hover:bg-[var(--primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface)]"
+              style={{
+                background: "var(--primary)",
+                color: "var(--surface)",
+              }}
             >
               Explore support options
             </a>
