@@ -25,7 +25,7 @@ const toneStyles = {
     background: "var(--card)",
   },
   warm: {
-    accent: "var(--accent)",
+    accent: "var(--secondary)",
     background: "var(--surface)",
   },
 };
