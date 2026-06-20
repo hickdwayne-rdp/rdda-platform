@@ -27,7 +27,8 @@ export function SectionCard({
       id={id}
       className={classes}
       style={{
-        background: "var(--card)",
+        background:
+          "radial-gradient(circle at top right, rgba(187, 199, 196, 0.26), transparent 13rem), linear-gradient(145deg, rgba(255, 255, 255, 0.92), var(--card) 62%, rgba(217, 216, 214, 0.22))",
         borderColor: "var(--border)",
       }}
       aria-labelledby={ariaLabelledBy}
