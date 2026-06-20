@@ -5,31 +5,35 @@ const supportGroups = [
     title: "Families seeking support",
     description:
       "RDDA helps families understand and connect with doula-informed support through pregnancy, birth, postpartum, fertility, loss, family transitions, and end-of-life care.",
+    accent: "var(--primary)",
   },
   {
     title: "Doulas and care workers",
     description:
       "RDDA supports doulas and care workers through community connection, shared visibility, and a stronger local support network.",
+    accent: "var(--secondary)",
   },
   {
     title: "The wider community",
     description:
       "RDDA provides a public-facing place for community members to learn about doula support, local resources, and ways to connect.",
+    accent: "var(--accent)",
   },
 ];
 
 export function HomeWhoRddaSupportsSection() {
   return (
-    <SectionCard>
-      <div className="flex flex-col gap-4">
+    <SectionCard className="relative overflow-hidden">
+      <div className="absolute -right-16 top-10 h-40 w-40 rounded-full bg-[var(--surface)]" />
+      <div className="relative z-10 flex flex-col gap-4">
         <p
           className="text-sm font-semibold uppercase tracking-[0.2em]"
-          style={{ color: "var(--muted-foreground)" }}
+          style={{ color: "var(--secondary)" }}
         >
-          Who RDDA Supports
+          Who RDDA supports
         </p>
-        <div className="flex flex-col gap-3">
-          <h2 className="max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl">
+        <div className="grid gap-4 lg:grid-cols-[0.9fr_1fr] lg:items-end">
+          <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-[var(--primary)] sm:text-4xl">
             Support for families, doulas, and the wider community.
           </h2>
           <p
@@ -43,14 +47,21 @@ export function HomeWhoRddaSupportsSection() {
         </div>
       </div>
 
-      <div className="mt-8 grid gap-4 md:grid-cols-3">
+      <div className="relative z-10 mt-8 grid gap-4 md:grid-cols-3">
         {supportGroups.map((group) => (
           <article
             key={group.title}
-            className="rounded-2xl border p-5"
+            className="rounded-3xl border bg-[var(--surface)] p-5 shadow-sm"
             style={{ borderColor: "var(--border)" }}
           >
-            <h3 className="text-lg font-semibold">{group.title}</h3>
+            <div
+              className="mb-5 h-2 w-16 rounded-full"
+              style={{ background: group.accent }}
+              aria-hidden="true"
+            />
+            <h3 className="text-lg font-semibold text-[var(--primary)]">
+              {group.title}
+            </h3>
             <p
               className="mt-3 text-sm leading-6"
               style={{ color: "var(--muted-foreground)" }}
