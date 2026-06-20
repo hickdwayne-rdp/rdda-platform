@@ -45,7 +45,10 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(187, 199, 196, 0.52), transparent 34rem),
+    radial-gradient(circle at top left, rgba(187, 199, 196, 0.56), transparent 34rem),
+    radial-gradient(circle at top right, rgba(174, 124, 88, 0.14), transparent 28rem),
+    radial-gradient(circle at bottom right, rgba(129, 151, 149, 0.2), transparent 30rem),
+    linear-gradient(135deg, rgba(63, 92, 88, 0.035) 0 1px, transparent 1px 24px),
     linear-gradient(180deg, #fbfaf8 0%, var(--background) 44%, #ece9e5 100%);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
