@@ -22,7 +22,7 @@ const supportGroups = [
   {
     label: "Community partners",
     description:
-      "Organizations and community members seeking a clearer understanding of doula support and RDDA&apos;s public role.",
+      "Organizations and community members seeking a clearer understanding of doula support and RDDA's public role.",
   },
 ];
 
