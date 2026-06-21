@@ -1,6 +1,87 @@
+import Image from "next/image";
+
 import { PageContainer } from "@/components/layout/PageContainer";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionCard } from "@/components/ui/SectionCard";
+
+const doulaPhotos = [
+  {
+    name: "Alicia England",
+    src: "/images/doulas/Alicia_England.jpg",
+  },
+  {
+    name: "Alysa Allan",
+    src: "/images/doulas/Alysa_Allan.jpg",
+  },
+  {
+    name: "Amber Cavers",
+    src: "/images/doulas/Amber_Cavers.jpg",
+  },
+  {
+    name: "Amber Thibault",
+    src: "/images/doulas/Amber_Thibault.jpg",
+  },
+  {
+    name: "Andria Sahli",
+    src: "/images/doulas/Andria_Sahli.jpg",
+  },
+  {
+    name: "Ashlee Godzic",
+    src: "/images/doulas/Ashlee_Godzic.jpg",
+  },
+  {
+    name: "Callista Bierkos",
+    src: "/images/doulas/Callista_Bierkos.jpg",
+  },
+  {
+    name: "Chelsea Clark",
+    src: "/images/doulas/Chelsea_Clark.jpg",
+  },
+  {
+    name: "Christa Duquette",
+    src: "/images/doulas/Christa_Duquette.jpeg",
+  },
+  {
+    name: "Janelle Allison",
+    src: "/images/doulas/Janelle_Allison.jpg",
+  },
+  {
+    name: "Jessie Alfano",
+    src: "/images/doulas/Jessie_Alfano.jpeg",
+  },
+  {
+    name: "Kaitlyn Boese",
+    src: "/images/doulas/Kaitlyn_Boese.jpg",
+  },
+  {
+    name: "Kathleen Howard Bjornson",
+    src: "/images/doulas/Kathleen_Howard_Bjornson.jpg",
+  },
+  {
+    name: "Laura Gauthier",
+    src: "/images/doulas/Laura_Gauthier.jpg",
+  },
+  {
+    name: "Lizzie Cooper",
+    src: "/images/doulas/Lizzie_Cooper.jpeg",
+  },
+  {
+    name: "Mindy Pottruff",
+    src: "/images/doulas/Mindy_Pottruff.jpeg",
+  },
+  {
+    name: "Miranda Allarie",
+    src: "/images/doulas/Miranda_Allarie.jpg",
+  },
+  {
+    name: "Shelby Story",
+    src: "/images/doulas/Shelby_Story.jpg",
+  },
+  {
+    name: "Stephanie Griffith",
+    src: "/images/doulas/Stephanie_Griffith.jpg",
+  },
+];
 
 const doulaSupportAreas = [
   {
@@ -19,7 +100,7 @@ const doulaSupportAreas = [
     eyebrow: "Awareness",
     title: "Visibility without directory logic",
     description:
-      "RDDA helps the public understand the role of doulas and the value of doula support. This static route does not include member profiles, search, filtering, booking, matching, or application workflows.",
+      "RDDA helps the public understand the role of doulas and the value of doula support. This static route can show approved member photos without search, filtering, booking, matching, or application workflows.",
   },
   {
     eyebrow: "Collaboration",
@@ -31,14 +112,15 @@ const doulaSupportAreas = [
 
 const staticScopeItems = [
   "Introduces RDDA's relationship to doulas.",
+  "Shows approved doula photos as a static visual roster.",
   "Uses only static, informational route content.",
   "Uses the existing PageShell, PageContainer, and SectionCard primitives.",
   "Preserves the frozen homepage and existing public routes.",
 ];
 
 const deferredItems = [
-  "Does not create a doula directory.",
-  "Does not include doula profiles, filtering, search, booking, or matching.",
+  "Does not create a searchable or filterable doula directory.",
+  "Does not include full doula profiles, bios, contact links, booking, or matching.",
   "Does not add forms, accounts, applications, authentication, or API logic.",
   "Does not read from Payload, Supabase, a CMS, or a database.",
 ];
@@ -124,6 +206,60 @@ export default function DoulasPage() {
                 </p>
               </div>
             ))}
+          </section>
+
+          <section
+            className="rounded-[2rem] border p-6 shadow-sm sm:p-8"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(251, 250, 248, 0.94), rgba(187, 199, 196, 0.26))",
+              borderColor: "var(--border)",
+            }}
+          >
+            <div className="mb-8 max-w-3xl space-y-4">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                RDDA doulas
+              </p>
+              <h2 className="text-3xl font-semibold tracking-tight text-foreground">
+                A static visual roster of RDDA doulas.
+              </h2>
+              <p className="leading-7 text-muted-foreground">
+                These approved photos help visitors see the people connected with
+                RDDA. The roster is intentionally static and does not include search,
+                filtering, booking, matching, contact links, or full profile details.
+              </p>
+            </div>
+
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {doulaPhotos.map((doula) => (
+                <article
+                  key={doula.name}
+                  className="overflow-hidden rounded-3xl border shadow-sm"
+                  style={{
+                    background: "var(--card)",
+                    borderColor: "rgba(129, 151, 149, 0.38)",
+                  }}
+                >
+                  <div className="relative aspect-[4/5] overflow-hidden">
+                    <Image
+                      src={doula.src}
+                      alt={`Portrait of ${doula.name}`}
+                      fill
+                      sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold tracking-tight text-foreground">
+                      {doula.name}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      RDDA doula
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
           </section>
 
           <section className="grid gap-6 lg:grid-cols-2">
