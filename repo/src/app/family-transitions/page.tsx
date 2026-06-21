@@ -59,23 +59,32 @@ export default function FamilyTransitionsPage() {
     <PageShell>
       <PageContainer>
         <main className="space-y-10 py-12 md:py-16">
-          <section className="space-y-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-              Family Transitions
-            </p>
-
-            <div className="space-y-4">
-              <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-                Support for families moving through change.
-              </h1>
-
-              <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
-                Red Deer Doula Association recognizes family transitions as
-                periods when families may need steady emotional, informational,
-                practical, and family-centred support. This page is general
-                public information for families, support people, doulas, and
-                community members across Central Alberta.
-              </p>
+          <section className="overflow-hidden rounded-[2rem] border border-border bg-card shadow-sm">
+            <div className="grid gap-8 p-7 md:grid-cols-[1.5fr_0.8fr] md:p-10">
+              <div className="space-y-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                  Family Transitions
+                </p>
+                <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
+                  Support for families moving through change.
+                </h1>
+                <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
+                  Red Deer Doula Association recognizes family transitions as
+                  periods when families may need steady emotional, informational,
+                  practical, and family-centred support. This page is general
+                  public information for Central Alberta communities.
+                </p>
+              </div>
+              <aside className="rounded-[1.5rem] border border-border bg-background/70 p-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Broad family-change language
+                </p>
+                <p className="mt-3 leading-7 text-muted-foreground">
+                  This page does not provide counselling, legal advice,
+                  mediation, child-protection support, crisis support, or case
+                  management.
+                </p>
+              </aside>
             </div>
           </section>
 
@@ -96,63 +105,70 @@ export default function FamilyTransitionsPage() {
             </div>
 
             <div className="grid gap-5 md:grid-cols-2">
-              {transitionSupportAreas.map((area) => (
+              {transitionSupportAreas.map((area, index) => (
                 <SectionCard key={area.title}>
-                  <article className="space-y-3">
-                    <h3 className="text-xl font-semibold tracking-tight text-foreground">
-                      {area.title}
-                    </h3>
-                    <p className="leading-7 text-muted-foreground">
-                      {area.description}
-                    </p>
+                  <article className="space-y-4">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white">
+                      {index + 1}
+                    </div>
+                    <div className="space-y-3">
+                      <h3 className="text-xl font-semibold tracking-tight text-foreground">
+                        {area.title}
+                      </h3>
+                      <p className="leading-7 text-muted-foreground">
+                        {area.description}
+                      </p>
+                    </div>
                   </article>
                 </SectionCard>
               ))}
             </div>
           </section>
 
-          <SectionCard>
-            <div className="max-w-3xl space-y-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Family change can take many forms
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Families may move through many kinds of transition
-              </h2>
-              <p className="leading-7 text-muted-foreground">
-                Family transitions may involve changing roles, routines,
-                relationships, households, caregiving responsibilities, support
-                networks, or family structures. This page uses broad
-                family-change language only.
-              </p>
-              <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
-                {transitionExamples.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </SectionCard>
+          <div className="grid gap-5 lg:grid-cols-2">
+            <SectionCard>
+              <div className="space-y-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Family change can take many forms
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  Families may move through many kinds of transition
+                </h2>
+                <p className="leading-7 text-muted-foreground">
+                  Family transitions may involve changing roles, routines,
+                  relationships, households, caregiving responsibilities, support
+                  networks, or family structures. This page uses broad
+                  family-change language only.
+                </p>
+                <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+                  {transitionExamples.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </SectionCard>
 
-          <SectionCard>
-            <div className="max-w-3xl space-y-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Questions families may consider
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Reflection can help prepare for conversations with qualified supports
-              </h2>
-              <p className="leading-7 text-muted-foreground">
-                These prompts are general public information only. They are not a
-                form, intake tool, checklist submission, screening process,
-                triage tool, or individualized recommendation.
-              </p>
-              <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
-                {reflectionItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </SectionCard>
+            <SectionCard>
+              <div className="space-y-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Questions families may consider
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  Reflection can help prepare for conversations with qualified supports
+                </h2>
+                <p className="leading-7 text-muted-foreground">
+                  These prompts are general public information only. They are not
+                  a form, intake tool, checklist submission, screening process,
+                  triage tool, or individualized recommendation.
+                </p>
+                <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+                  {reflectionItems.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </SectionCard>
+          </div>
 
           <section className="space-y-6">
             <div className="max-w-3xl space-y-3">
@@ -170,7 +186,6 @@ export default function FamilyTransitionsPage() {
                 outside this page scope.
               </p>
             </div>
-
             <div className="grid gap-5 md:grid-cols-2">
               {familySupportItems.map((item) => (
                 <SectionCard key={item.title}>
@@ -187,50 +202,43 @@ export default function FamilyTransitionsPage() {
             </div>
           </section>
 
-          <SectionCard>
-            <div className="max-w-3xl space-y-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Thinking about fit
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Families can ask individual doulas about scope, experience, and boundaries
-              </h2>
-              <p className="leading-7 text-muted-foreground">
-                Individual doulas may differ in training, scope, availability,
-                communication style, fees, location, and experience with family
-                transition support. Families may wish to ask individual doulas
-                about those details directly.
-              </p>
-              <p className="leading-7 text-muted-foreground">
-                RDDA public pages are informational. They do not assign, match,
-                screen, supervise, certify, refer, book, or recommend doulas.
-              </p>
-            </div>
-          </SectionCard>
+          <div className="grid gap-5 lg:grid-cols-2">
+            <SectionCard>
+              <div className="space-y-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Thinking about fit
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  Families can ask individual doulas about scope, experience, and boundaries
+                </h2>
+                <p className="leading-7 text-muted-foreground">
+                  Individual doulas may differ in training, scope, availability,
+                  communication style, fees, location, and experience with family
+                  transition support. Families may wish to ask individual doulas
+                  about those details directly.
+                </p>
+              </div>
+            </SectionCard>
 
-          <SectionCard>
-            <div className="max-w-3xl space-y-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Website boundaries
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Static public information only
-              </h2>
-              <p className="leading-7 text-muted-foreground">
-                This website provides general public information only. It does not
-                provide counselling, therapy, mediation, legal advice, custody
-                advice, parenting-time advice, child-protection advice, crisis
-                support, emergency support, case management, advocacy, intake,
-                referral, matching, booking, or individualized recommendations.
-              </p>
-              <p className="leading-7 text-muted-foreground">
-                Legal, safety, crisis, emergency, mental-health, medical,
-                child-protection, mediation, counselling, therapy, or
-                regulated-care concerns should be directed to qualified providers
-                or appropriate supports.
-              </p>
-            </div>
-          </SectionCard>
+            <SectionCard>
+              <div className="space-y-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Website boundaries
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  Static public information only
+                </h2>
+                <p className="leading-7 text-muted-foreground">
+                  This website provides general public information only. It does
+                  not provide counselling, therapy, mediation, legal advice,
+                  custody advice, parenting-time advice, child-protection advice,
+                  crisis support, emergency support, case management, advocacy,
+                  intake, referral, matching, booking, or individualized
+                  recommendations.
+                </p>
+              </div>
+            </SectionCard>
+          </div>
         </main>
       </PageContainer>
     </PageShell>
