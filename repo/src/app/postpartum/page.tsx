@@ -156,7 +156,7 @@ export default function PostpartumPage() {
                   Practical household support
                 </p>
                 <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                  Practical support depends on the individual doula's services and boundaries
+                  Practical support depends on the individual doula&apos;s services and boundaries
                 </h2>
                 <p className="leading-7 text-muted-foreground">
                   Practical support may help the household feel more supported
