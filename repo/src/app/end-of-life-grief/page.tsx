@@ -82,29 +82,32 @@ export default function EndOfLifeGriefPage() {
     <PageShell>
       <PageContainer>
         <main className="space-y-10 py-12 md:py-16">
-          <section className="space-y-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-              End-of-Life and Grief
-            </p>
-
-            <div className="space-y-4">
-              <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-                Support around end-of-life, death, remembrance, and grief.
-              </h1>
-
-              <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
-                Red Deer Doula Association recognizes end-of-life and grief as
-                seasons when families, caregivers, friends, chosen family, and
-                support people may need calm presence, practical help, and
-                compassionate information. This page is general public
-                information for Central Alberta communities.
-              </p>
-
-              <p className="max-w-3xl leading-7 text-muted-foreground">
-                This page is informational only and does not provide medical,
-                hospice, palliative, MAID, counselling, legal, estate, funeral,
-                crisis, emergency, or spiritual-direction services.
-              </p>
+          <section className="overflow-hidden rounded-[2rem] border border-border bg-card shadow-sm">
+            <div className="grid gap-8 p-7 md:grid-cols-[1.5fr_0.8fr] md:p-10">
+              <div className="space-y-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                  End-of-Life and Grief
+                </p>
+                <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
+                  Support around end-of-life, death, remembrance, and grief.
+                </h1>
+                <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
+                  Red Deer Doula Association recognizes end-of-life and grief as
+                  seasons when families, caregivers, friends, chosen family, and
+                  support people may need calm presence, practical help, and
+                  compassionate information.
+                </p>
+              </div>
+              <aside className="rounded-[1.5rem] border border-border bg-background/70 p-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Important boundaries
+                </p>
+                <p className="mt-3 leading-7 text-muted-foreground">
+                  This page does not provide medical, hospice, palliative, MAID,
+                  counselling, legal, estate, funeral, crisis, emergency, or
+                  spiritual-direction services.
+                </p>
+              </aside>
             </div>
           </section>
 
@@ -124,64 +127,71 @@ export default function EndOfLifeGriefPage() {
               </p>
             </div>
 
-            <div className="grid gap-5 md:grid-cols-2">
-              {supportAreas.map((area) => (
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {supportAreas.map((area, index) => (
                 <SectionCard key={area.title}>
-                  <article className="space-y-3">
-                    <h3 className="text-xl font-semibold tracking-tight text-foreground">
-                      {area.title}
-                    </h3>
-                    <p className="leading-7 text-muted-foreground">
-                      {area.description}
-                    </p>
+                  <article className="space-y-4">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white">
+                      {index + 1}
+                    </div>
+                    <div className="space-y-3">
+                      <h3 className="text-xl font-semibold tracking-tight text-foreground">
+                        {area.title}
+                      </h3>
+                      <p className="leading-7 text-muted-foreground">
+                        {area.description}
+                      </p>
+                    </div>
                   </article>
                 </SectionCard>
               ))}
             </div>
           </section>
 
-          <SectionCard>
-            <div className="max-w-3xl space-y-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Every family is different
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Support may involve many people, roles, and relationships
-              </h2>
-              <p className="leading-7 text-muted-foreground">
-                End-of-life and grief experiences may involve families,
-                caregivers, friends, chosen family, relatives, cultural
-                communities, and support networks. This page uses broad support
-                language only and does not replace qualified providers.
-              </p>
-              <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
-                {familyContexts.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </SectionCard>
+          <div className="grid gap-5 lg:grid-cols-2">
+            <SectionCard>
+              <div className="space-y-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Every family is different
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  Support may involve many people, roles, and relationships
+                </h2>
+                <p className="leading-7 text-muted-foreground">
+                  End-of-life and grief experiences may involve families,
+                  caregivers, friends, chosen family, relatives, cultural
+                  communities, and support networks. This page uses broad support
+                  language only and does not replace qualified providers.
+                </p>
+                <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+                  {familyContexts.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </SectionCard>
 
-          <SectionCard>
-            <div className="max-w-3xl space-y-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Questions families may consider
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Reflection can help prepare for conversations with qualified supports
-              </h2>
-              <p className="leading-7 text-muted-foreground">
-                These questions are general reflection prompts only. They are
-                not medical, counselling, legal, funeral, spiritual, estate,
-                benefits, crisis, emergency, or individualized advice.
-              </p>
-              <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
-                {reflectionPrompts.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </SectionCard>
+            <SectionCard>
+              <div className="space-y-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Questions families may consider
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  Reflection can help prepare for conversations with qualified supports
+                </h2>
+                <p className="leading-7 text-muted-foreground">
+                  These questions are general reflection prompts only. They are
+                  not medical, counselling, legal, funeral, spiritual, estate,
+                  benefits, crisis, emergency, or individualized advice.
+                </p>
+                <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+                  {reflectionPrompts.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </SectionCard>
+          </div>
 
           <section className="space-y-6">
             <div className="max-w-3xl space-y-3">
@@ -199,7 +209,6 @@ export default function EndOfLifeGriefPage() {
                 outside this page scope.
               </p>
             </div>
-
             <div className="grid gap-5 md:grid-cols-2">
               {caregiverSupportItems.map((item) => (
                 <SectionCard key={item.title}>
@@ -216,60 +225,49 @@ export default function EndOfLifeGriefPage() {
             </div>
           </section>
 
-          <SectionCard>
-            <div className="max-w-3xl space-y-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Thinking about fit
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Families can ask individual doulas about scope, experience, and boundaries
-              </h2>
-              <p className="leading-7 text-muted-foreground">
-                Individual doulas may differ in training, experience, scope,
-                availability, service area, fees, and communication style.
-                Families may wish to ask individual doulas about those details
-                directly.
-              </p>
-              <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
-                {fitQuestions.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <p className="leading-7 text-muted-foreground">
-                RDDA website content does not match, book, refer, assess,
-                screen, supervise, certify, or recommend a specific doula or
-                provider.
-              </p>
-            </div>
-          </SectionCard>
+          <div className="grid gap-5 lg:grid-cols-2">
+            <SectionCard>
+              <div className="space-y-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Thinking about fit
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  Families can ask individual doulas about scope, experience, and boundaries
+                </h2>
+                <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+                  {fitQuestions.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <p className="leading-7 text-muted-foreground">
+                  RDDA website content does not match, book, refer, assess,
+                  screen, supervise, certify, or recommend a specific doula or
+                  provider.
+                </p>
+              </div>
+            </SectionCard>
 
-          <SectionCard>
-            <div className="max-w-3xl space-y-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Website boundaries
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Static public information only
-              </h2>
-              <p className="leading-7 text-muted-foreground">
-                This website provides general public information only. It does
-                not provide medical care, hospice care, palliative care, MAID
-                advice or decision support, counselling, therapy, grief
-                treatment, trauma treatment, crisis intervention, emergency
-                response, funeral-service arrangements, spiritual direction,
-                religious instruction, legal advice, estate advice, benefits
-                advice, financial advice, case management, advocacy, intake,
-                referral, matching, booking, or individualized recommendations.
-              </p>
-              <p className="leading-7 text-muted-foreground">
-                Medical, hospice, palliative, MAID, counselling, mental-health,
-                crisis, emergency, funeral, spiritual, legal, estate, benefits,
-                or regulated-care questions should be directed to qualified
-                providers, emergency services, crisis supports, or appropriate
-                professional supports.
-              </p>
-            </div>
-          </SectionCard>
+            <SectionCard>
+              <div className="space-y-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Website boundaries
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  Static public information only
+                </h2>
+                <p className="leading-7 text-muted-foreground">
+                  This website provides general public information only. It does
+                  not provide medical care, hospice care, palliative care, MAID
+                  advice or decision support, counselling, therapy, grief
+                  treatment, trauma treatment, crisis intervention, emergency
+                  response, funeral-service arrangements, spiritual direction,
+                  religious instruction, legal advice, estate advice, benefits
+                  advice, financial advice, case management, advocacy, intake,
+                  referral, matching, booking, or individualized recommendations.
+                </p>
+              </div>
+            </SectionCard>
+          </div>
         </main>
       </PageContainer>
     </PageShell>
