@@ -187,46 +187,69 @@ export default function FAQPage() {
   return (
     <PageShell>
       <PageContainer>
-        <main className="space-y-10 py-12 md:py-16">
-          <section className="space-y-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-              FAQ
-            </p>
+        <main className="space-y-12 py-12 md:py-16">
+          <section className="overflow-hidden rounded-[2rem] border border-border/80 bg-card/95 p-6 shadow-sm md:p-10">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(16rem,0.55fr)] lg:items-end">
+              <div className="space-y-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                  FAQ
+                </p>
 
-            <div className="space-y-4">
-              <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-                Questions about RDDA, doula support, and public information.
-              </h1>
+                <div className="space-y-4">
+                  <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
+                    Questions about RDDA, doula support, and public information.
+                  </h1>
 
-              <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
-                Red Deer Doula Association answers common questions in general,
-                source-aligned language for families, doulas, community
-                partners, and visitors across Central Alberta. This page is
-                static and informational only.
-              </p>
+                  <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
+                    Red Deer Doula Association answers common questions in
+                    general, source-aligned language for families, doulas,
+                    community partners, and visitors across Central Alberta. This
+                    page is static and informational only.
+                  </p>
+                </div>
+              </div>
+
+              <div className="rounded-[1.5rem] border border-border/80 bg-background/70 p-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Public answers
+                </p>
+                <p className="mt-3 text-3xl font-semibold text-primary">24</p>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  Common questions grouped into clear, static information
+                  sections.
+                </p>
+              </div>
             </div>
           </section>
 
           <section className="space-y-6">
-            {faqSections.map((section) => (
+            {faqSections.map((section, sectionIndex) => (
               <SectionCard key={section.title}>
                 <div className="space-y-6">
-                  <div className="max-w-3xl space-y-3">
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                      {section.label}
-                    </p>
-                    <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                      {section.title}
-                    </h2>
+                  <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                    <div className="max-w-3xl space-y-3">
+                      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                        {section.label}
+                      </p>
+                      <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                        {section.title}
+                      </h2>
+                    </div>
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary">
+                      {String(sectionIndex + 1).padStart(2, "0")}
+                    </span>
                   </div>
 
                   <div className="grid gap-5 lg:grid-cols-3">
                     {section.items.map((item) => (
-                      <article key={item.question} className="space-y-3">
+                      <article
+                        key={item.question}
+                        className="rounded-[1.25rem] border border-border/70 bg-surface/70 p-5"
+                      >
                         <h3 className="text-lg font-semibold tracking-tight text-foreground">
                           {item.question}
                         </h3>
-                        <p className="leading-7 text-muted-foreground">
+                        <p className="mt-3 leading-7 text-muted-foreground">
                           {item.answer}
                         </p>
                       </article>
@@ -238,21 +261,26 @@ export default function FAQPage() {
           </section>
 
           <SectionCard>
-            <div className="max-w-3xl space-y-3">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Closing clarity
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Clear answers support respectful community understanding
-              </h2>
-              <p className="leading-7 text-muted-foreground">
-                The FAQ is part of RDDA&apos;s public education role. It helps
-                visitors understand broad language, public boundaries, and
-                appropriate use of static website information.
-              </p>
-              <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+            <div className="grid gap-6 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:items-start">
+              <div className="space-y-3">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Closing clarity
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  Clear answers support respectful community understanding
+                </h2>
+                <p className="leading-7 text-muted-foreground">
+                  The FAQ is part of RDDA&apos;s public education role. It helps
+                  visitors understand broad language, public boundaries, and
+                  appropriate use of static website information.
+                </p>
+              </div>
+              <ul className="space-y-3 leading-7 text-muted-foreground">
                 {closingPoints.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-secondary" />
+                    <span>{item}</span>
+                  </li>
                 ))}
               </ul>
             </div>
