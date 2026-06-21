@@ -73,36 +73,54 @@ export default function ContactPage() {
   return (
     <PageShell>
       <PageContainer>
-        <main className="space-y-10 py-12 md:py-16">
-          <section className="space-y-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-              Contact
-            </p>
+        <main className="space-y-12 py-12 md:py-16">
+          <section className="overflow-hidden rounded-[2rem] border border-border/80 bg-card/95 p-6 shadow-sm md:p-10">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(16rem,0.55fr)] lg:items-end">
+              <div className="space-y-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                  Contact
+                </p>
 
-            <div className="space-y-4">
-              <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-                Contact RDDA with clear expectations.
-              </h1>
+                <div className="space-y-4">
+                  <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
+                    Contact RDDA with clear expectations.
+                  </h1>
 
-              <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
-                Red Deer Doula Association uses public contact as a non-urgent
-                starting point for general questions, community connection, and
-                clearer understanding of RDDA&apos;s public-facing information. This
-                page explains appropriate contact expectations without becoming a
-                form, intake pathway, referral workflow, booking system, or
-                crisis-response tool.
-              </p>
+                  <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
+                    Red Deer Doula Association uses public contact as a
+                    non-urgent starting point for general questions, community
+                    connection, and clearer understanding of RDDA&apos;s
+                    public-facing information. This page explains appropriate
+                    contact expectations without becoming a form, intake
+                    pathway, referral workflow, booking system, or
+                    crisis-response tool.
+                  </p>
+                </div>
+              </div>
+
+              <div className="rounded-[1.5rem] border border-border/80 bg-background/70 p-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Non-urgent only
+                </p>
+                <p className="mt-3 text-3xl font-semibold text-primary">6</p>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  Broad inquiry areas explained without forms, intake, or
+                  automated response tools.
+                </p>
+              </div>
             </div>
           </section>
 
           <SectionCard>
-            <div className="max-w-3xl space-y-3">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Contact orientation
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                A starting point for non-urgent contact
-              </h2>
+            <div className="grid gap-6 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:items-start">
+              <div className="space-y-3">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Contact orientation
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  A starting point for non-urgent contact
+                </h2>
+              </div>
               <p className="leading-7 text-muted-foreground">
                 This page helps visitors understand the kinds of broad
                 communication that may be appropriate for RDDA contact. It is
@@ -114,18 +132,25 @@ export default function ContactPage() {
           </SectionCard>
 
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {inquiryCategories.map((item) => (
-              <SectionCard key={item.title}>
-                <div className="space-y-3">
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                    {item.label}
-                  </p>
-                  <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                    {item.title}
-                  </h2>
-                  <p className="leading-7 text-muted-foreground">
-                    {item.description}
-                  </p>
+            {inquiryCategories.map((item, index) => (
+              <SectionCard key={item.title} className="h-full">
+                <div className="flex h-full flex-col gap-4">
+                  <div className="flex items-center justify-between gap-4">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                      {item.label}
+                    </p>
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <div className="space-y-3">
+                    <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                      {item.title}
+                    </h2>
+                    <p className="leading-7 text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               </SectionCard>
             ))}
@@ -158,9 +183,12 @@ export default function ContactPage() {
                 <h2 className="text-2xl font-semibold tracking-tight text-foreground">
                   How to frame a broad inquiry
                 </h2>
-                <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+                <ul className="space-y-3 leading-7 text-muted-foreground">
                   {communicationExpectations.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-secondary" />
+                      <span>{item}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -177,11 +205,11 @@ export default function ContactPage() {
                   Think through the kind of information you need
                 </h2>
                 <p className="leading-7 text-muted-foreground">
-                  Before contacting RDDA, visitors may find it helpful to identify
-                  whether their question is about public information, family
-                  support awareness, doula connection, training, resources, or a
-                  community conversation. This is guidance only, not a screening
-                  process or eligibility checklist.
+                  Before contacting RDDA, visitors may find it helpful to
+                  identify whether their question is about public information,
+                  family support awareness, doula connection, training,
+                  resources, or a community conversation. This is guidance only,
+                  not a screening process or eligibility checklist.
                 </p>
               </div>
             </SectionCard>
@@ -194,9 +222,12 @@ export default function ContactPage() {
                 <h2 className="text-2xl font-semibold tracking-tight text-foreground">
                   Helpful context to consider
                 </h2>
-                <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+                <ul className="space-y-3 leading-7 text-muted-foreground">
                   {beforeReachingOut.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                      <span>{item}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -212,9 +243,12 @@ export default function ContactPage() {
                 <h2 className="text-2xl font-semibold tracking-tight text-foreground">
                   What this page does not do
                 </h2>
-                <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+                <ul className="space-y-3 leading-7 text-muted-foreground">
                   {contactBoundaries.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-secondary" />
+                      <span>{item}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -235,9 +269,12 @@ export default function ContactPage() {
                   qualified services, emergency supports, or responsible public
                   authorities.
                 </p>
-                <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+                <ul className="space-y-3 leading-7 text-muted-foreground">
                   {urgentBoundaries.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-secondary" />
+                      <span>{item}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
