@@ -56,25 +56,32 @@ export default function FertilityPage() {
     <PageShell>
       <PageContainer>
         <main className="space-y-10 py-12 md:py-16">
-          <section className="space-y-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-              Fertility &amp; Preconception Support
-            </p>
-
-            <div className="space-y-4">
-              <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-                Non-medical support before pregnancy.
-              </h1>
-
-              <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
-                Red Deer Doula Association recognizes fertility and
-                preconception support as steady emotional, informational,
-                practical, and family-centred support for people considering
-                pregnancy, preparing for pregnancy, or navigating questions
-                before pregnancy. This page is general public information for
-                families, support people, doulas, and community members across
-                Central Alberta.
-              </p>
+          <section className="overflow-hidden rounded-[2rem] border border-border bg-card shadow-sm">
+            <div className="grid gap-8 p-7 md:grid-cols-[1.5fr_0.8fr] md:p-10">
+              <div className="space-y-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                  Fertility &amp; Preconception Support
+                </p>
+                <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
+                  Non-medical support before pregnancy.
+                </h1>
+                <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
+                  Red Deer Doula Association recognizes fertility and
+                  preconception support as steady emotional, informational,
+                  practical, and family-centred support for people considering
+                  pregnancy, preparing for pregnancy, or navigating questions
+                  before pregnancy.
+                </p>
+              </div>
+              <aside className="rounded-[1.5rem] border border-border bg-background/70 p-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Care boundaries
+                </p>
+                <p className="mt-3 leading-7 text-muted-foreground">
+                  Reproductive-health, testing, medication, diagnosis, and
+                  treatment questions belong with qualified providers.
+                </p>
+              </aside>
             </div>
           </section>
 
@@ -95,86 +102,94 @@ export default function FertilityPage() {
             </div>
 
             <div className="grid gap-5 md:grid-cols-2">
-              {fertilitySupportAreas.map((area) => (
+              {fertilitySupportAreas.map((area, index) => (
                 <SectionCard key={area.title}>
-                  <article className="space-y-3">
-                    <h3 className="text-xl font-semibold tracking-tight text-foreground">
-                      {area.title}
-                    </h3>
-                    <p className="leading-7 text-muted-foreground">
-                      {area.description}
-                    </p>
+                  <article className="space-y-4">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white">
+                      {index + 1}
+                    </div>
+                    <div className="space-y-3">
+                      <h3 className="text-xl font-semibold tracking-tight text-foreground">
+                        {area.title}
+                      </h3>
+                      <p className="leading-7 text-muted-foreground">
+                        {area.description}
+                      </p>
+                    </div>
                   </article>
                 </SectionCard>
               ))}
             </div>
           </section>
 
-          <SectionCard>
-            <div className="max-w-3xl space-y-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Before pregnancy
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Preparation can focus on questions, preferences, and practical support
-              </h2>
-              <p className="leading-7 text-muted-foreground">
-                Before pregnancy, people may consider what kind of non-medical
-                support helps them feel prepared and respected. Doulas may
-                support general organization, reflection, and practical planning
-                while medical, reproductive-health, medication, testing,
-                diagnosis, and treatment questions remain with qualified
-                providers.
-              </p>
-              <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
-                {preconceptionItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </SectionCard>
+          <div className="grid gap-5 lg:grid-cols-2">
+            <SectionCard>
+              <div className="space-y-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Before pregnancy
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  Preparation can focus on questions, preferences, and practical support
+                </h2>
+                <p className="leading-7 text-muted-foreground">
+                  Before pregnancy, people may consider what kind of non-medical
+                  support helps them feel prepared and respected. Doulas may
+                  support general organization, reflection, and practical planning
+                  while medical questions remain with qualified providers.
+                </p>
+                <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+                  {preconceptionItems.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </SectionCard>
+
+            <SectionCard>
+              <div className="space-y-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Questions before pregnancy
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  Doulas can support questions without replacing qualified care
+                </h2>
+                <p className="leading-7 text-muted-foreground">
+                  Fertility and preconception experiences can involve many
+                  questions. Doulas may help people organize questions and feel
+                  supported while communicating with qualified providers.
+                </p>
+                <p className="leading-7 text-muted-foreground">
+                  Health-related, treatment-related, medication-related,
+                  testing-related, diagnosis-related, genetic, reproductive-health,
+                  or individualized concerns belong with qualified providers.
+                </p>
+              </div>
+            </SectionCard>
+          </div>
 
           <SectionCard>
-            <div className="max-w-3xl space-y-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Questions before pregnancy
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Doulas can support questions without replacing qualified care
-              </h2>
-              <p className="leading-7 text-muted-foreground">
-                Fertility and preconception experiences can involve many
-                questions. Doulas may help people organize questions and feel
-                supported while communicating with qualified providers.
-              </p>
-              <p className="leading-7 text-muted-foreground">
-                Health-related, treatment-related, medication-related,
-                testing-related, diagnosis-related, genetic,
-                reproductive-health, or individualized concerns belong with
-                qualified providers.
-              </p>
-            </div>
-          </SectionCard>
-
-          <SectionCard>
-            <div className="max-w-3xl space-y-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Emotional support and qualified supports
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Emotional support is not counselling, therapy, diagnosis, treatment, or urgent care
-              </h2>
-              <p className="leading-7 text-muted-foreground">
-                Fertility and preconception support may include calm presence,
-                encouragement, reassurance, and helping people feel less alone.
-                Doula emotional support is not counselling, therapy, diagnosis,
-                treatment, urgent support, or emergency response.
-              </p>
-              <p className="leading-7 text-muted-foreground">
-                Visitors should use qualified health, mental-health, community,
-                emergency, or other appropriate supports when concerns are
-                clinical, urgent, safety-related, or require regulated care.
-              </p>
+            <div className="grid gap-6 md:grid-cols-[0.85fr_1.15fr]">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Emotional support and qualified supports
+                </p>
+                <h2 className="mt-3 text-2xl font-semibold tracking-tight text-foreground">
+                  Emotional support is not counselling, therapy, diagnosis, treatment, or urgent care
+                </h2>
+              </div>
+              <div className="space-y-4 leading-7 text-muted-foreground">
+                <p>
+                  Fertility and preconception support may include calm presence,
+                  encouragement, reassurance, and helping people feel less alone.
+                  Doula emotional support is not counselling, therapy, diagnosis,
+                  treatment, urgent support, or emergency response.
+                </p>
+                <p>
+                  Visitors should use qualified health, mental-health, community,
+                  emergency, or other appropriate supports when concerns are
+                  clinical, urgent, safety-related, or require regulated care.
+                </p>
+              </div>
             </div>
           </SectionCard>
 
@@ -194,7 +209,6 @@ export default function FertilityPage() {
                 advice, or conflict-management guidance.
               </p>
             </div>
-
             <div className="grid gap-5 md:grid-cols-2">
               {familySupportItems.map((item) => (
                 <SectionCard key={item.title}>
@@ -211,51 +225,48 @@ export default function FertilityPage() {
             </div>
           </section>
 
-          <SectionCard>
-            <div className="max-w-3xl space-y-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Thinking about fit
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Is fertility or preconception support right for my family?
-              </h2>
-              <p className="leading-7 text-muted-foreground">
-                Families may use this page as a gentle starting point for broad
-                reflection. It is not a screening tool, eligibility process,
-                recommendation engine, intake pathway, or promise that RDDA will
-                find or assign a doula.
-              </p>
-              <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
-                {reflectionItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </SectionCard>
+          <div className="grid gap-5 lg:grid-cols-2">
+            <SectionCard>
+              <div className="space-y-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Thinking about fit
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  Is fertility or preconception support right for my family?
+                </h2>
+                <p className="leading-7 text-muted-foreground">
+                  Families may use this page as a gentle starting point for broad
+                  reflection. It is not a screening tool, eligibility process,
+                  recommendation engine, intake pathway, or promise that RDDA
+                  will find or assign a doula.
+                </p>
+                <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+                  {reflectionItems.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </SectionCard>
 
-          <SectionCard>
-            <div className="max-w-3xl space-y-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Website boundaries
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Static public information only
-              </h2>
-              <p className="leading-7 text-muted-foreground">
-                This page does not collect personal fertility,
-                reproductive-health, pregnancy, treatment, testing, medication,
-                relationship, grief, safety, or family information. It does not
-                provide clinical, legal, counselling, therapy, emergency,
-                booking, referral, intake, payment, account, search, filtering,
-                CRM, or email automation services.
-              </p>
-              <p className="leading-7 text-muted-foreground">
-                Visitors should confirm current details directly with qualified
-                providers, responsible organizations, or individual doulas when
-                current or individualized information matters.
-              </p>
-            </div>
-          </SectionCard>
+            <SectionCard>
+              <div className="space-y-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Website boundaries
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  Static public information only
+                </h2>
+                <p className="leading-7 text-muted-foreground">
+                  This page does not collect personal fertility,
+                  reproductive-health, pregnancy, treatment, testing, medication,
+                  relationship, grief, safety, or family information. It does not
+                  provide clinical, legal, counselling, therapy, emergency,
+                  booking, referral, intake, payment, account, search, filtering,
+                  CRM, or email automation services.
+                </p>
+              </div>
+            </SectionCard>
+          </div>
         </main>
       </PageContainer>
     </PageShell>
