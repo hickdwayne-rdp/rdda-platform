@@ -26,32 +26,50 @@ export default function PartnersPage() {
   return (
     <PageShell>
       <PageContainer>
-        <main className="space-y-10 py-12 md:py-16">
-          <section className="space-y-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-              Partners
-            </p>
-            <div className="space-y-4">
-              <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-                Community partnerships grounded in clarity and respect.
-              </h1>
-              <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
-                Red Deer Doula Association values public community connection
-                across Central Alberta. This page explains partnership as broad
-                relationship orientation, public education, and respectful
-                communication without creating a transactional website workflow.
-              </p>
+        <main className="space-y-12 py-12 md:py-16">
+          <section className="overflow-hidden rounded-[2rem] border border-border/80 bg-card/95 p-6 shadow-sm md:p-10">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(16rem,0.55fr)] lg:items-end">
+              <div className="space-y-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                  Partners
+                </p>
+                <div className="space-y-4">
+                  <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
+                    Community partnerships grounded in clarity and respect.
+                  </h1>
+                  <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
+                    Red Deer Doula Association values public community connection
+                    across Central Alberta. This page explains partnership as
+                    broad relationship orientation, public education, and
+                    respectful communication without creating a transactional
+                    website workflow.
+                  </p>
+                </div>
+              </div>
+
+              <div className="rounded-[1.5rem] border border-border/80 bg-background/70 p-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Connection focus
+                </p>
+                <p className="mt-3 text-3xl font-semibold text-primary">4</p>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  Relationship values and broad partner categories without
+                  applications or referral systems.
+                </p>
+              </div>
             </div>
           </section>
 
           <SectionCard>
-            <div className="max-w-3xl space-y-3">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Partnership orientation
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Partnership as community understanding
-              </h2>
+            <div className="grid gap-6 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:items-start">
+              <div className="space-y-3">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Partnership orientation
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  Partnership as community understanding
+                </h2>
+              </div>
               <p className="leading-7 text-muted-foreground">
                 RDDA frames partnership as respectful connection, shared public
                 understanding, and awareness of family support language. The page
@@ -70,9 +88,12 @@ export default function PartnersPage() {
                 <h2 className="text-2xl font-semibold tracking-tight text-foreground">
                   Values that guide community connection
                 </h2>
-                <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+                <ul className="space-y-3 leading-7 text-muted-foreground">
                   {values.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                      <span>{item}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -86,9 +107,12 @@ export default function PartnersPage() {
                 <h2 className="text-2xl font-semibold tracking-tight text-foreground">
                   Public relationships can take many forms
                 </h2>
-                <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+                <ul className="space-y-3 leading-7 text-muted-foreground">
                   {categories.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-secondary" />
+                      <span>{item}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -140,9 +164,12 @@ export default function PartnersPage() {
                 <h2 className="text-2xl font-semibold tracking-tight text-foreground">
                   What this page does not do
                 </h2>
-                <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+                <ul className="space-y-3 leading-7 text-muted-foreground">
                   {boundaries.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-secondary" />
+                      <span>{item}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
