@@ -66,35 +66,53 @@ export default function ResourcesPage() {
   return (
     <PageShell>
       <PageContainer>
-        <main className="space-y-10 py-12 md:py-16">
-          <section className="space-y-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-              Resources
-            </p>
+        <main className="space-y-12 py-12 md:py-16">
+          <section className="overflow-hidden rounded-[2rem] border border-border/80 bg-card/95 p-6 shadow-sm md:p-10">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(16rem,0.55fr)] lg:items-end">
+              <div className="space-y-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                  Resources
+                </p>
 
-            <div className="space-y-4">
-              <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-                Resources for understanding support options.
-              </h1>
+                <div className="space-y-4">
+                  <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
+                    Resources for understanding support options.
+                  </h1>
 
-              <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
-                Red Deer Doula Association shares resource information as general
-                education and support-navigation awareness for families, doulas,
-                and community members across Central Alberta. This page introduces
-                broad support categories without becoming a live directory,
-                referral pathway, intake system, or crisis-response tool.
-              </p>
+                  <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
+                    Red Deer Doula Association shares resource information as
+                    general education and support-navigation awareness for
+                    families, doulas, and community members across Central
+                    Alberta. This page introduces broad support categories
+                    without becoming a live directory, referral pathway, intake
+                    system, or crisis-response tool.
+                  </p>
+                </div>
+              </div>
+
+              <div className="rounded-[1.5rem] border border-border/80 bg-background/70 p-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Static guide
+                </p>
+                <p className="mt-3 text-3xl font-semibold text-primary">6</p>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  Broad resource categories presented as public education, not a
+                  live directory.
+                </p>
+              </div>
             </div>
           </section>
 
           <SectionCard>
-            <div className="max-w-3xl space-y-3">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Resource awareness
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                A starting point for resource awareness
-              </h2>
+            <div className="grid gap-6 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:items-start">
+              <div className="space-y-3">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Resource awareness
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  A starting point for resource awareness
+                </h2>
+              </div>
               <p className="leading-7 text-muted-foreground">
                 Resource needs may differ across pregnancy, birth, postpartum,
                 loss, adoption, surrogacy, fertility experiences, family
@@ -106,18 +124,25 @@ export default function ResourcesPage() {
           </SectionCard>
 
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {resourceCategories.map((item) => (
-              <SectionCard key={item.title}>
-                <div className="space-y-3">
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                    {item.label}
-                  </p>
-                  <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                    {item.title}
-                  </h2>
-                  <p className="leading-7 text-muted-foreground">
-                    {item.description}
-                  </p>
+            {resourceCategories.map((item, index) => (
+              <SectionCard key={item.title} className="h-full">
+                <div className="flex h-full flex-col gap-4">
+                  <div className="flex items-center justify-between gap-4">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                      {item.label}
+                    </p>
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <div className="space-y-3">
+                    <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                      {item.title}
+                    </h2>
+                    <p className="leading-7 text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               </SectionCard>
             ))}
@@ -149,9 +174,12 @@ export default function ResourcesPage() {
                 <h2 className="text-2xl font-semibold tracking-tight text-foreground">
                   Helpful ways to use this page
                 </h2>
-                <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+                <ul className="space-y-3 leading-7 text-muted-foreground">
                   {resourceUseGuidance.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-secondary" />
+                      <span>{item}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -168,9 +196,9 @@ export default function ResourcesPage() {
                   Who this resource page may support
                 </h2>
                 <p className="leading-7 text-muted-foreground">
-                  This static page is written for people who want clearer language
-                  around support categories, community care, doula-adjacent needs,
-                  and broader family wellbeing.
+                  This static page is written for people who want clearer
+                  language around support categories, community care,
+                  doula-adjacent needs, and broader family wellbeing.
                 </p>
               </div>
             </SectionCard>
@@ -183,9 +211,12 @@ export default function ResourcesPage() {
                 <h2 className="text-2xl font-semibold tracking-tight text-foreground">
                   Broad audiences only
                 </h2>
-                <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+                <ul className="space-y-3 leading-7 text-muted-foreground">
                   {resourceAudiences.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                      <span>{item}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -201,9 +232,12 @@ export default function ResourcesPage() {
                 <h2 className="text-2xl font-semibold tracking-tight text-foreground">
                   What this page does not do
                 </h2>
-                <ul className="list-disc space-y-3 pl-6 leading-7 text-muted-foreground">
+                <ul className="space-y-3 leading-7 text-muted-foreground">
                   {staticBoundaries.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-secondary" />
+                      <span>{item}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
