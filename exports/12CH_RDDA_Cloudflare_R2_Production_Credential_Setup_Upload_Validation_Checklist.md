@@ -233,167 +233,166 @@ Checklist:
 [ ] Confirm the image loads publicly.
 [ ] Refresh the admin page.
 [ ] Confirm the uploaded media record still appears.
-+```
-+
-+Suggested test file:
-+
-+```text
-+small JPG or PNG image
-+under 1 MB
-+no private or client-sensitive content
-+```
-+
-+---
-+
-+## 9. Persistence Validation Checklist
-+
-+R2 is being used correctly only if media survives redeploys.
-+
-+Checklist:
-+
-+```text
-+[ ] Upload a test image through /admin.
-+[ ] Record the media record title and public URL in private validation notes.
-+[ ] Trigger a fresh Vercel production redeploy.
-+[ ] Reopen /admin after redeploy.
-+[ ] Confirm the media record still exists.
-+[ ] Open the public media URL again.
-+[ ] Confirm the uploaded image still loads.
-+[ ] Confirm the image was not dependent on Vercel's ephemeral filesystem.
-+```
-+
-+---
-+
-+## 10. Public Route Validation Checklist
-+
-+After successful upload validation, confirm that public static routes remain safe.
-+
-+Checklist:
-+
-+```text
-+[ ] Confirm / loads.
-+[ ] Confirm /doulas loads.
-+[ ] Confirm /events loads.
-+[ ] Confirm /contact loads.
-+[ ] Confirm /admin loads dynamically.
-+[ ] Confirm /api loads dynamically.
-+[ ] Confirm public pages do not expose secret R2 values.
-+[ ] Confirm public pages continue to use fallback behavior where CMS data is unavailable.
-+```
-+
-+Expected route behavior from the previous validation remains:
-+
-+```text
-+/events                 Static
-+/doulas                 Static
-+/admin/[[...segments]]  Dynamic
-+/api/[...slug]          Dynamic
-+```
-+
-+---
-+
-+## 11. Failure Checks
-+
-+If upload fails, check these items before changing code:
-+
-+```text
-+[ ] PAYLOAD_STORAGE_DRIVER is exactly r2.
-+[ ] R2_BUCKET exactly matches the Cloudflare bucket name.
-+[ ] R2_ACCESS_KEY_ID is present in the production environment.
-+[ ] R2_SECRET_ACCESS_KEY is present in the production environment.
-+[ ] R2_ENDPOINT uses the correct account-specific R2 S3 endpoint.
-+[ ] R2_REGION is set to auto.
-+[ ] R2_PUBLIC_URL is reachable from a browser.
-+[ ] The R2 token has bucket permissions for the selected bucket.
-+[ ] The Vercel deployment was rebuilt after the variables were added.
-+[ ] The upload test is being run against the production deployment with the variables configured.
-+```
-+
-+Do not paste real secret values into troubleshooting notes.
-+
-+---
-+
-+## 12. Rollback Checklist
-+
-+If R2 activation causes production upload issues, rollback should not require code changes.
-+
-+Preferred rollback:
-+
-+```text
-+[ ] In Vercel, change PAYLOAD_STORAGE_DRIVER from r2 to local.
-+[ ] Redeploy production.
-+[ ] Confirm /admin loads.
-+[ ] Confirm public routes still load.
-+[ ] Leave R2 variables stored but inactive, or remove them if no longer needed.
-+```
-+
-+Alternative rollback:
-+
-+```text
-+[ ] Remove PAYLOAD_STORAGE_DRIVER from the production deployment environment.
-+[ ] Redeploy production.
-+[ ] Confirm the storage helper returns to local-safe behavior.
-+```
-+
-+Important:
-+
-+```text
-+This rollback is expected to disable durable R2 uploads.
-+It is only a temporary safety measure if production upload validation fails.
-+```
-+
-+---
-+
-+## 13. Security Rules
-+
-+Hard rules for this checkpoint:
-+
-+```text
-+[x] Do not implement real secrets.
-+[x] Do not commit production credentials.
-+[x] Do not add secrets to env.example.
-+[x] Do not add secrets to markdown exports.
-+[x] Do not expose secret values through NEXT_PUBLIC variables.
-+[x] Do not paste access keys into chat.
-+[x] Do not run destructive storage tests against production media.
-+```
-+
-+Recommended production practice:
-+
-+```text
-+Use least-privilege R2 credentials.
-+Rotate credentials if they are exposed.
-+Keep production credentials in Vercel and a secure password manager only.
-+Use a non-sensitive test image for first validation.
-+```
-+
-+---
-+
-+## 14. Completion Criteria
-+
-+12CH is complete when:
-+
-+```text
-+[x] A production credential setup checklist exists.
-+[x] A Vercel environment variable checklist exists.
-+[x] A Payload admin upload validation checklist exists.
-+[x] A persistence-after-redeploy validation checklist exists.
-+[x] A rollback checklist exists.
-+[x] No real secrets were implemented.
-+[x] No application code was changed.
-+```
-+
-+Live R2 activation remains incomplete until real credentials are configured outside GitHub and upload validation is performed in production.
-+
-+---
-+
-+## 15. Recommended Next Checkpoint
-+
-+Recommended next checkpoint after this checklist:
-+
-+```text
-+12CI — Payload production admin smoke test and first content entry validation
-+```
-+
-+That checkpoint should only proceed after production environment variables and deployment access are available.
-+
+```
+
+Suggested test file:
+
+```text
+small JPG or PNG image
+under 1 MB
+no private or client-sensitive content
+```
+
+---
+
+## 9. Persistence Validation Checklist
+
+R2 is being used correctly only if media survives redeploys.
+
+Checklist:
+
+```text
+[ ] Upload a test image through /admin.
+[ ] Record the media record title and public URL in private validation notes.
+[ ] Trigger a fresh Vercel production redeploy.
+[ ] Reopen /admin after redeploy.
+[ ] Confirm the media record still exists.
+[ ] Open the public media URL again.
+[ ] Confirm the uploaded image still loads.
+[ ] Confirm the image was not dependent on Vercel's ephemeral filesystem.
+```
+
+---
+
+## 10. Public Route Validation Checklist
+
+After successful upload validation, confirm that public static routes remain safe.
+
+Checklist:
+
+```text
+[ ] Confirm / loads.
+[ ] Confirm /doulas loads.
+[ ] Confirm /events loads.
+[ ] Confirm /contact loads.
+[ ] Confirm /admin loads dynamically.
+[ ] Confirm /api loads dynamically.
+[ ] Confirm public pages do not expose secret R2 values.
+[ ] Confirm public pages continue to use fallback behavior where CMS data is unavailable.
+```
+
+Expected route behavior from the previous validation remains:
+
+```text
+/events                 Static
+/doulas                 Static
+/admin/[[...segments]]  Dynamic
+/api/[...slug]          Dynamic
+```
+
+---
+
+## 11. Failure Checks
+
+If upload fails, check these items before changing code:
+
+```text
+[ ] PAYLOAD_STORAGE_DRIVER is exactly r2.
+[ ] R2_BUCKET exactly matches the Cloudflare bucket name.
+[ ] R2_ACCESS_KEY_ID is present in the production environment.
+[ ] R2_SECRET_ACCESS_KEY is present in the production environment.
+[ ] R2_ENDPOINT uses the correct account-specific R2 S3 endpoint.
+[ ] R2_REGION is set to auto.
+[ ] R2_PUBLIC_URL is reachable from a browser.
+[ ] The R2 token has bucket permissions for the selected bucket.
+[ ] The Vercel deployment was rebuilt after the variables were added.
+[ ] The upload test is being run against the production deployment with the variables configured.
+```
+
+Do not paste real secret values into troubleshooting notes.
+
+---
+
+## 12. Rollback Checklist
+
+If R2 activation causes production upload issues, rollback should not require code changes.
+
+Preferred rollback:
+
+```text
+[ ] In Vercel, change PAYLOAD_STORAGE_DRIVER from r2 to local.
+[ ] Redeploy production.
+[ ] Confirm /admin loads.
+[ ] Confirm public routes still load.
+[ ] Leave R2 variables stored but inactive, or remove them if no longer needed.
+```
+
+Alternative rollback:
+
+```text
+[ ] Remove PAYLOAD_STORAGE_DRIVER from the production deployment environment.
+[ ] Redeploy production.
+[ ] Confirm the storage helper returns to local-safe behavior.
+```
+
+Important:
+
+```text
+This rollback is expected to disable durable R2 uploads.
+It is only a temporary safety measure if production upload validation fails.
+```
+
+---
+
+## 13. Security Rules
+
+Hard rules for this checkpoint:
+
+```text
+[x] Do not implement real secrets.
+[x] Do not commit production credentials.
+[x] Do not add secrets to env.example.
+[x] Do not add secrets to markdown exports.
+[x] Do not expose secret values through NEXT_PUBLIC variables.
+[x] Do not paste access keys into chat.
+[x] Do not run destructive storage tests against production media.
+```
+
+Recommended production practice:
+
+```text
+Use least-privilege R2 credentials.
+Rotate credentials if they are exposed.
+Keep production credentials in Vercel and a secure password manager only.
+Use a non-sensitive test image for first validation.
+```
+
+---
+
+## 14. Completion Criteria
+
+12CH is complete when:
+
+```text
+[x] A production credential setup checklist exists.
+[x] A Vercel environment variable checklist exists.
+[x] A Payload admin upload validation checklist exists.
+[x] A persistence-after-redeploy validation checklist exists.
+[x] A rollback checklist exists.
+[x] No real secrets were implemented.
+[x] No application code was changed.
+```
+
+Live R2 activation remains incomplete until real credentials are configured outside GitHub and upload validation is performed in production.
+
+---
+
+## 15. Recommended Next Checkpoint
+
+Recommended next checkpoint after this checklist:
+
+```text
+12CI — Payload production admin smoke test and first content entry validation
+```
+
+That checkpoint should only proceed after production environment variables and deployment access are available.
