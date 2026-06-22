@@ -14,6 +14,7 @@ import { ProfileChangeRequests } from './src/payload/collections/ProfileChangeRe
 import { TrainingModules } from './src/payload/collections/TrainingModules'
 import { TrainingProgress } from './src/payload/collections/TrainingProgress'
 import { Users } from './src/payload/collections/Users'
+import { getStoragePlugins } from './src/payload/storage/r2Storage'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -41,6 +42,7 @@ export default buildConfig({
     },
   }),
   editor: lexicalEditor({}),
+  plugins: getStoragePlugins(),
   secret: process.env.PAYLOAD_SECRET || '',
   sharp,
   typescript: {
