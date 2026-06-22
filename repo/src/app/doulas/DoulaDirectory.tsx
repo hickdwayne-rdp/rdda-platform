@@ -8,6 +8,7 @@ export type DoulaDirectoryProfile = {
   imageSrc: string;
   imageAlt: string;
   imagePosition?: string;
+  imageZoom?: number;
   doulaSince?: string;
   servicesOffered?: string;
   businessName?: string;
@@ -30,6 +31,18 @@ const filters = [
 ];
 
 const normalize = (value: string) => value.toLowerCase().trim();
+
+const getProfileImageZoom = (profile: DoulaDirectoryProfile) => {
+  if (profile.imageZoom) {
+    return profile.imageZoom;
+  }
+
+  if (profile.name === "Lizzie Cooper") {
+    return 0.8;
+  }
+
+  return 1;
+};
 
 type ProfileDetailProps = {
   label: string;
@@ -168,6 +181,7 @@ export function DoulaDirectory({ profiles }: { profiles: DoulaDirectoryProfile[]
                 ? `Doula since ${doula.doulaSince}`
                 : "RDDA doula";
             const businessText = doula.businessName || doula.websiteText;
+            const imageZoom = getProfileImageZoom(doula);
 
             return (
               <article
@@ -180,7 +194,10 @@ export function DoulaDirectory({ profiles }: { profiles: DoulaDirectoryProfile[]
               >
                 <div
                   className="relative aspect-[4/3] w-full overflow-hidden border-b"
-                  style={{ borderColor: "rgba(129, 151, 149, 0.28)" }}
+                  style={{
+                    background: "var(--card-muted)",
+                    borderColor: "rgba(129, 151, 149, 0.28)",
+                  }}
                 >
                   <Image
                     src={doula.imageSrc}
@@ -188,7 +205,11 @@ export function DoulaDirectory({ profiles }: { profiles: DoulaDirectoryProfile[]
                     fill
                     sizes="(min-width: 1280px) 28vw, (min-width: 768px) 42vw, 100vw"
                     className="object-cover"
-                    style={{ objectPosition: doula.imagePosition ?? "center top" }}
+                    style={{
+                      objectPosition: doula.imagePosition ?? "center top",
+                      transform: `scale(${imageZoom})`,
+                      transformOrigin: doula.imagePosition ?? "center top",
+                    }}
                   />
                 </div>
 
