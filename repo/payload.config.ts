@@ -7,8 +7,12 @@ import { buildConfig } from 'payload'
 import sharp from 'sharp'
 
 import { DoulaProfiles } from './src/payload/collections/DoulaProfiles'
+import { EventRequests } from './src/payload/collections/EventRequests'
+import { Events } from './src/payload/collections/Events'
 import { Media } from './src/payload/collections/Media'
 import { ProfileChangeRequests } from './src/payload/collections/ProfileChangeRequests'
+import { TrainingModules } from './src/payload/collections/TrainingModules'
+import { TrainingProgress } from './src/payload/collections/TrainingProgress'
 import { Users } from './src/payload/collections/Users'
 
 const filename = fileURLToPath(import.meta.url)
@@ -21,7 +25,16 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, DoulaProfiles, ProfileChangeRequests],
+  collections: [
+    Users,
+    Media,
+    DoulaProfiles,
+    ProfileChangeRequests,
+    EventRequests,
+    Events,
+    TrainingModules,
+    TrainingProgress,
+  ],
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URL || '',
