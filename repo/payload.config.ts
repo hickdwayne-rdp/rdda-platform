@@ -1,4 +1,4 @@
-﻿import path from 'path'
+import path from 'path'
 import { fileURLToPath } from 'url'
 
 import { postgresAdapter } from '@payloadcms/db-postgres'
@@ -6,7 +6,9 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
 
+import { DoulaProfiles } from './src/payload/collections/DoulaProfiles'
 import { Media } from './src/payload/collections/Media'
+import { ProfileChangeRequests } from './src/payload/collections/ProfileChangeRequests'
 import { Users } from './src/payload/collections/Users'
 
 const filename = fileURLToPath(import.meta.url)
@@ -19,7 +21,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media],
+  collections: [Users, Media, DoulaProfiles, ProfileChangeRequests],
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URL || '',
