@@ -30,6 +30,26 @@ const filters = [
 
 const normalize = (value: string) => value.toLowerCase().trim();
 
+type ProfileDetailProps = {
+  label: string;
+  value?: string;
+};
+
+function ProfileDetail({ label, value }: ProfileDetailProps) {
+  if (!value) {
+    return null;
+  }
+
+  return (
+    <div className="border-t pt-3" style={{ borderColor: "var(--border)" }}>
+      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+        {label}
+      </p>
+      <p className="mt-1 text-sm leading-6 text-muted-foreground">{value}</p>
+    </div>
+  );
+}
+
 export function DoulaDirectory({ profiles }: { profiles: DoulaDirectoryProfile[] }) {
   const [query, setQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState("All");
@@ -138,56 +158,54 @@ export function DoulaDirectory({ profiles }: { profiles: DoulaDirectoryProfile[]
       </div>
 
       {filteredProfiles.length > 0 ? (
-        <div className="grid gap-6 lg:grid-cols-2">
-          {filteredProfiles.map((doula) => (
-            <article
-              key={doula.name}
-              className="overflow-hidden rounded-3xl border shadow-sm"
-              style={{
-                background: "var(--card)",
-                borderColor: "rgba(129, 151, 149, 0.38)",
-              }}
-            >
-              <div className="grid gap-0 sm:grid-cols-[minmax(11rem,0.42fr)_minmax(0,1fr)]">
-                <div className="relative aspect-[4/5] min-h-72 overflow-hidden sm:min-h-full">
+        <div className="grid items-start gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {filteredProfiles.map((doula) => {
+            const isAssociate = doula.profileType === "associate";
+            const statusText = isAssociate
+              ? "Associate member"
+              : doula.doulaSince
+                ? `Doula since ${doula.doulaSince}`
+                : "RDDA doula";
+            const businessText = doula.businessName || doula.websiteText;
+
+            return (
+              <article
+                key={doula.name}
+                className="flex h-full flex-col overflow-hidden rounded-3xl border shadow-sm"
+                style={{
+                  background: "var(--card)",
+                  borderColor: "rgba(129, 151, 149, 0.38)",
+                }}
+              >
+                <div
+                  className="relative aspect-[4/3] w-full overflow-hidden border-b"
+                  style={{ borderColor: "rgba(129, 151, 149, 0.28)" }}
+                >
                   <Image
                     src={doula.imageSrc}
                     alt={doula.imageAlt}
                     fill
-                    sizes="(min-width: 1024px) 22vw, (min-width: 640px) 38vw, 100vw"
-                    className="object-cover"
+                    sizes="(min-width: 1280px) 28vw, (min-width: 768px) 42vw, 100vw"
+                    className="object-cover object-center"
                   />
                 </div>
 
-                <div className="space-y-4 p-5 sm:p-6">
-                  <div>
+                <div className="flex flex-1 flex-col gap-5 p-5 sm:p-6">
+                  <header className="space-y-3">
                     <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                      {doula.profileType === "associate"
-                        ? "Associate member"
-                        : doula.doulaSince
-                          ? `Doula since ${doula.doulaSince}`
-                          : "RDDA doula"}
+                      {statusText}
                     </p>
-                    <h3 className="mt-2 text-2xl font-semibold tracking-tight text-foreground">
-                      {doula.name}
-                    </h3>
-                    {doula.businessName || doula.websiteText ? (
-                      <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                        {doula.businessName || doula.websiteText}
-                      </p>
-                    ) : null}
-                  </div>
-
-                  {doula.servicesOffered ? (
                     <div>
-                      <p className="text-sm font-semibold text-foreground">
-                        Services offered
-                      </p>
-                      <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                        {doula.servicesOffered}
-                      </p>
+                      <h3 className="text-2xl font-semibold tracking-tight text-foreground">
+                        {doula.name}
+                      </h3>
+                      {businessText ? (
+                        <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                          {businessText}
+                        </p>
+                      ) : null}
                     </div>
-                  ) : null}
+                  </header>
 
                   <div className="flex flex-wrap gap-2">
                     {doula.categories.map((category) => (
@@ -195,8 +213,12 @@ export function DoulaDirectory({ profiles }: { profiles: DoulaDirectoryProfile[]
                         key={`${doula.name}-${category}`}
                         className="rounded-full border px-3 py-1 text-xs font-semibold"
                         style={{
-                          background: "rgba(187, 199, 196, 0.22)",
-                          borderColor: "rgba(129, 151, 149, 0.38)",
+                          background: isAssociate
+                            ? "rgba(174, 124, 88, 0.12)"
+                            : "rgba(187, 199, 196, 0.22)",
+                          borderColor: isAssociate
+                            ? "rgba(174, 124, 88, 0.34)"
+                            : "rgba(129, 151, 149, 0.38)",
                           color: "var(--foreground)",
                         }}
                       >
@@ -205,24 +227,28 @@ export function DoulaDirectory({ profiles }: { profiles: DoulaDirectoryProfile[]
                     ))}
                   </div>
 
+                  <div className="space-y-3">
+                    <ProfileDetail label="Services offered" value={doula.servicesOffered} />
+                    <ProfileDetail label="Website / public listing" value={doula.websiteText} />
+                  </div>
+
                   {doula.bio ? (
-                    <div className="space-y-3 text-sm leading-6 text-muted-foreground">
+                    <div
+                      className="mt-auto space-y-3 border-t pt-4 text-sm leading-6 text-muted-foreground"
+                      style={{ borderColor: "var(--border)" }}
+                    >
+                      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+                        Profile
+                      </p>
                       {doula.bio.map((paragraph) => (
                         <p key={paragraph}>{paragraph}</p>
                       ))}
                     </div>
                   ) : null}
-
-                  {doula.websiteText ? (
-                    <p className="text-sm leading-6 text-muted-foreground">
-                      <span className="font-semibold text-foreground">Website: </span>
-                      {doula.websiteText}
-                    </p>
-                  ) : null}
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       ) : (
         <div
