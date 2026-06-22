@@ -7,6 +7,7 @@ export type DoulaDirectoryProfile = {
   name: string;
   imageSrc: string;
   imageAlt: string;
+  imagePosition?: string;
   doulaSince?: string;
   servicesOffered?: string;
   businessName?: string;
@@ -186,7 +187,8 @@ export function DoulaDirectory({ profiles }: { profiles: DoulaDirectoryProfile[]
                     alt={doula.imageAlt}
                     fill
                     sizes="(min-width: 1280px) 28vw, (min-width: 768px) 42vw, 100vw"
-                    className="object-cover object-center"
+                    className="object-cover"
+                    style={{ objectPosition: doula.imagePosition ?? "center top" }}
                   />
                 </div>
 
