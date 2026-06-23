@@ -7,6 +7,7 @@ const primaryNavigationLinks = [
   { label: "Services", href: "/services" },
   { label: "Families", href: "/families" },
   { label: "Doulas", href: "/doulas" },
+  { label: "Membership", href: "/membership" },
   { label: "Events", href: "/events" },
   { label: "Resources", href: "/resources" },
   { label: "FAQ", href: "/faq" },
