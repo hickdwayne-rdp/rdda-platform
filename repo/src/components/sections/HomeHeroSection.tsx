@@ -29,6 +29,15 @@ export function HomeHeroSection() {
               className="max-w-3xl text-lg leading-8 sm:text-xl"
               style={{ color: "var(--muted-foreground)" }}
             >
+              Proudly serving our community together with birth, bereavement,
+              postpartum, and lifecycle doula support in Red Deer and the
+              surrounding areas of Central Alberta.
+            </p>
+
+            <p
+              className="max-w-3xl text-base leading-7"
+              style={{ color: "var(--muted-foreground)" }}
+            >
               RDDA connects Central Alberta families with trusted doula support,
               education, community resources, and supportive guidance through birth,
               postpartum, family transitions, grief, and end-of-life support.
