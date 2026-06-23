@@ -1,4 +1,5 @@
 ﻿import Image from "next/image";
+import Link from "next/link";
 
 import { PageContainer } from "@/components/layout/PageContainer";
 import { PageShell } from "@/components/layout/PageShell";
@@ -39,17 +40,17 @@ const getEventTime = (event: PublicEvent) => {
 };
 
 const eventScopeItems = [
-  "Shows approved and published CMS events when available.",
-  "Does not expose draft, pending, rejected, archived, or cancelled event records.",
-  "Keeps the public route build-safe before production database seeding.",
+  "Shows approved and published RDDA events when available.",
+  "Keeps draft, pending, rejected, archived, or cancelled event records out of public view.",
   "Supports event date, time, location, host, cost, registration link, and image fields.",
+  "Gives visitors a clear place to check for future learning and community opportunities."
 ];
 
 const deferredItems = [
   "Does not support RSVPs or ticketing yet.",
   "Does not process payments or registration fees.",
   "Does not automatically create events from approved event requests yet.",
-  "Does not include calendar feed export yet.",
+  "Does not include calendar feed export yet."
 ];
 
 export default async function EventsPage() {
@@ -79,8 +80,10 @@ export default async function EventsPage() {
               </h1>
 
               <p className="text-lg leading-8 text-muted-foreground">
-                RDDA event listings are prepared for approved CMS publishing. Public
-                visitors only see events that have been reviewed and published.
+                RDDA event listings help families, doulas, and community members
+                find approved public learning opportunities, association updates,
+                and Central Alberta community connection points when events are
+                available.
               </p>
             </div>
           </section>
@@ -100,12 +103,12 @@ export default async function EventsPage() {
               <h2 className="text-3xl font-semibold tracking-tight text-foreground">
                 {isUsingCmsEvents
                   ? "Upcoming approved RDDA events."
-                  : "Events will appear here once approved and published."}
+                  : "No public events are currently listed."}
               </h2>
               <p className="leading-7 text-muted-foreground">
                 {isUsingCmsEvents
-                  ? "These events are loaded from approved and published CMS data."
-                  : "The public events route is CMS-ready. It will remain safely empty until production CMS event content is connected and published."}
+                  ? "These events are loaded from approved and published RDDA event records."
+                  : "Check back for future RDDA events, community learning opportunities, meetings, and association updates. Doulas with membership questions can also visit the membership page."}
               </p>
             </div>
 
@@ -176,13 +179,31 @@ export default async function EventsPage() {
                   borderColor: "rgba(129, 151, 149, 0.38)",
                 }}
               >
-                <h3 className="text-2xl font-semibold tracking-tight text-foreground">
-                  No public events are currently published.
-                </h3>
-                <p className="mt-3 leading-7 text-muted-foreground">
-                  Approved RDDA events will appear here once the CMS is seeded and
-                  public event records are published.
-                </p>
+                <div className="max-w-3xl space-y-4">
+                  <h3 className="text-2xl font-semibold tracking-tight text-foreground">
+                    No public events are currently listed.
+                  </h3>
+                  <p className="leading-7 text-muted-foreground">
+                    RDDA can use this page for upcoming workshops, member
+                    meetings, community education, training opportunities, and
+                    approved public event listings. For now, visitors can connect
+                    through membership, contact, or social channels.
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    <Link
+                      href="/membership"
+                      className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    >
+                      Membership information
+                    </Link>
+                    <Link
+                      href="/contact"
+                      className="inline-flex rounded-full border border-border px-5 py-3 text-sm font-semibold text-primary transition hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    >
+                      Contact RDDA
+                    </Link>
+                  </div>
+                </div>
               </div>
             )}
           </section>
