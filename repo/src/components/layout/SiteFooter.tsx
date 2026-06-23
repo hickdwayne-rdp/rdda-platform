@@ -7,6 +7,7 @@ const coreFooterLinks = [
   { label: "Services", href: "/services" },
   { label: "Families", href: "/families" },
   { label: "Doulas", href: "/doulas" },
+  { label: "Membership", href: "/membership" },
   { label: "Events", href: "/events" },
   { label: "Resources", href: "/resources" },
   { label: "FAQ", href: "/faq" },
@@ -16,6 +17,12 @@ const coreFooterLinks = [
 const supportingFooterLinks = [
   { label: "Training", href: "/training" },
   { label: "Partners", href: "/partners" }
+];
+
+const externalFooterLinks = [
+  { label: "Facebook", href: "https://www.facebook.com/RDdoulas/" },
+  { label: "Instagram", href: "https://www.instagram.com/reddeerdoulaassociation/" },
+  { label: "Member application", href: "https://form.jotform.com/93258823040253" }
 ];
 
 export function SiteFooter() {
@@ -52,7 +59,7 @@ export function SiteFooter() {
 
         <nav
           aria-label="Footer navigation"
-          className="grid gap-5 text-sm text-white/78 sm:grid-cols-2"
+          className="grid gap-5 text-sm text-white/78 sm:grid-cols-3"
         >
           <div>
             <p className="mb-3 font-semibold text-white">Explore</p>
@@ -81,6 +88,24 @@ export function SiteFooter() {
                   >
                     {link.label}
                   </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="mb-3 font-semibold text-white">Follow</p>
+            <ul className="space-y-2">
+              {externalFooterLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex rounded-md transition hover:text-[var(--card-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--primary)]"
+                  >
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>
