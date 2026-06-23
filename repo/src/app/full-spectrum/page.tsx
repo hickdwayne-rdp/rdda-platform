@@ -8,7 +8,7 @@ const supportPoints = [
   "Support may connect more than one family experience instead of sitting inside only one service category.",
   "Care may include preparation, comfort, information, presence, transition support, advocacy awareness, and connection to appropriate resources.",
   "The role remains non-medical and does not replace clinical care, counselling, legal advice, crisis support, or emergency services.",
-  "Each public doula profile should still reflect the member&apos;s confirmed services, training, scope, and approved RDDA listing details."
+  "Each public doula profile should still reflect confirmed services, training, scope, and approved RDDA listing details."
 ];
 
 const relatedPages = [
