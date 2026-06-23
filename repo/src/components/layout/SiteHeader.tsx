@@ -8,7 +8,9 @@ const primaryNavigationLinks = [
   { label: "Families", href: "/families" },
   { label: "Doulas", href: "/doulas" },
   { label: "Membership", href: "/membership" },
+  { label: "Guidelines", href: "/membership/guidelines" },
   { label: "Events", href: "/events" },
+  { label: "News", href: "/news" },
   { label: "Resources", href: "/resources" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" }
