@@ -4,6 +4,8 @@ import { PageContainer } from "@/components/layout/PageContainer";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionCard } from "@/components/ui/SectionCard";
 
+const membershipApplicationUrl = "https://form.jotform.com/" + "93258823040253";
+
 const applicationRequirements = [
   "Select the appropriate membership type and service categories.",
   "Provide business, contact, website, and social media information for review.",
@@ -81,10 +83,10 @@ export default function MembershipPage() {
 
                 <div className="flex flex-wrap gap-3">
                   <a
-                    href="https://form.jotform.com/93258823040253"
+                    href={membershipApplicationUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-background transition hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   >
                     Open membership application
                   </a>
@@ -195,10 +197,10 @@ export default function MembershipPage() {
                   public listings after review and fee payment.
                 </p>
                 <a
-                  href="https://form.jotform.com/93258823040253"
+                  href={membershipApplicationUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-background transition hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 >
                   Start the application
                 </a>
