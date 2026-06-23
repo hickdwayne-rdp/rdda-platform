@@ -19,7 +19,11 @@ const supportingFooterLinks = [
   { label: "Training", href: "/training" },
   { label: "Partners", href: "/partners" },
   { label: "Full spectrum support", href: "/full-spectrum" },
-  { label: "Membership guidelines", href: "/membership/guidelines" }
+  { label: "Membership guidelines", href: "/membership/guidelines" },
+  { label: "Member portal planning", href: "/member-portal" },
+  { label: "Profile update planning", href: "/profile-updates" },
+  { label: "Event review planning", href: "/event-review" },
+  { label: "Payment planning", href: "/payments" }
 ];
 
 const externalFooterLinks = [
