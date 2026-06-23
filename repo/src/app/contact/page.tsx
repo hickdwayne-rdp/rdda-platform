@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { PageContainer } from "@/components/layout/PageContainer";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionCard } from "@/components/ui/SectionCard";
@@ -49,8 +51,8 @@ const communicationExpectations = [
 ];
 
 const beforeReachingOut = [
-  "Consider whether your question is about general RDDA information, family support awareness, doula connection, training, resources, or community partnership.",
-  "Review the public pages for services, families, doulas, training, and resources when your question may already fit one of those areas.",
+  "Consider whether your question is about general RDDA information, family support awareness, doula connection, training, resources, membership, or community partnership.",
+  "Review the public pages for services, families, doulas, membership, training, and resources when your question may already fit one of those areas.",
   "Keep details limited to what is appropriate for a broad public inquiry rather than private medical, legal, counselling, or crisis information.",
   "Use direct qualified supports when you need immediate help, professional advice, safety planning, clinical care, legal guidance, or crisis response.",
 ];
@@ -68,6 +70,13 @@ const urgentBoundaries = [
   "For family violence, child-safety, or immediate-risk concerns, use appropriate crisis, safety, or child-protection supports rather than relying on a static website page.",
   "For time-sensitive decisions, confirm current details with the qualified organization, provider, or public authority responsible for that support.",
 ];
+
+const primaryButtonClass =
+  "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold shadow-sm transition hover:bg-[var(--primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface)]";
+const primaryButtonStyle = {
+  background: "var(--primary)",
+  color: "var(--surface)",
+};
 
 export default function ContactPage() {
   return (
@@ -89,10 +98,10 @@ export default function ContactPage() {
                   <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
                     Red Deer Doula Association uses public contact as a
                     non-urgent starting point for general questions, community
-                    connection, and clearer understanding of RDDA&apos;s
-                    public-facing information. This page explains appropriate
-                    contact expectations without becoming a form, intake
-                    pathway, referral workflow, booking system, or
+                    connection, membership questions, and clearer understanding
+                    of RDDA&apos;s public-facing information. This page explains
+                    appropriate contact expectations without becoming a form,
+                    intake pathway, referral workflow, booking system, or
                     crisis-response tool.
                   </p>
                 </div>
@@ -128,6 +137,35 @@ export default function ContactPage() {
                 legal, counselling, safety, or crisis needs should be directed to
                 appropriate qualified services or emergency supports.
               </p>
+            </div>
+          </SectionCard>
+
+          <SectionCard>
+            <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,0.5fr)] lg:items-center">
+              <div className="space-y-3">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Membership questions
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  Doulas can start with membership information first.
+                </h2>
+                <p className="leading-7 text-muted-foreground">
+                  Questions about becoming an RDDA member, membership categories,
+                  fees, application review, public listing permissions, or
+                  guideline orientation should begin with the membership page.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3 lg:justify-end">
+                <Link href="/membership" className={primaryButtonClass} style={primaryButtonStyle}>
+                  Membership information
+                </Link>
+                <Link
+                  href="/membership/guidelines"
+                  className="inline-flex rounded-full border border-border px-5 py-3 text-sm font-semibold text-primary transition hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                >
+                  Guidelines
+                </Link>
+              </div>
             </div>
           </SectionCard>
 
@@ -208,8 +246,8 @@ export default function ContactPage() {
                   Before contacting RDDA, visitors may find it helpful to
                   identify whether their question is about public information,
                   family support awareness, doula connection, training,
-                  resources, or a community conversation. This is guidance only,
-                  not a screening process or eligibility checklist.
+                  resources, membership, or a community conversation. This is
+                  guidance only, not a screening process or eligibility checklist.
                 </p>
               </div>
             </SectionCard>
