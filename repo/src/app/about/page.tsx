@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { PageContainer } from "@/components/layout/PageContainer";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionCard } from "@/components/ui/SectionCard";
@@ -25,6 +27,13 @@ const supportGroups = [
       "Organizations and community members seeking a clearer understanding of doula support and RDDA's public role.",
   },
 ];
+
+const primaryButtonClass =
+  "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold shadow-sm transition hover:bg-[var(--primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface)]";
+const primaryButtonStyle = {
+  background: "var(--primary)",
+  color: "var(--surface)",
+};
 
 export default function AboutPage() {
   return (
@@ -180,6 +189,32 @@ export default function AboutPage() {
                 ))}
               </div>
             </section>
+
+            <SectionCard id="community-impact" ariaLabelledBy="community-impact-heading">
+              <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,0.55fr)] lg:items-center">
+                <div className="max-w-4xl">
+                  <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                    Community impact
+                  </p>
+                  <h2
+                    id="community-impact-heading"
+                    className="text-3xl font-semibold tracking-tight text-foreground"
+                  >
+                    A place for approved RDDA history and public impact stories.
+                  </h2>
+                  <p className="mt-5 text-base leading-7 text-muted-foreground">
+                    RDDA&apos;s public presence includes community education,
+                    member connection, and local association visibility. This
+                    static site now has a dedicated place for future approved
+                    updates about RDDA history, community involvement, and public
+                    impact without adding a publishing system yet.
+                  </p>
+                </div>
+                <Link href="/news" className={primaryButtonClass} style={primaryButtonStyle}>
+                  News and community
+                </Link>
+              </div>
+            </SectionCard>
 
             <SectionCard id="source-aligned-note" ariaLabelledBy="source-aligned-note-heading">
               <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,0.55fr)] lg:items-center">
