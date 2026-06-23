@@ -6,7 +6,11 @@ import { SectionCard } from "@/components/ui/SectionCard";
 
 const membershipApplicationUrl = "https://form.jotform.com/" + "93258823040253";
 const primaryButtonClass =
-  "inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
+  "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold shadow-sm transition hover:bg-[var(--primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface)]";
+const primaryButtonStyle = {
+  background: "var(--primary)",
+  color: "var(--surface)",
+};
 
 const applicationRequirements = [
   "Select the appropriate membership type and service categories.",
@@ -89,6 +93,7 @@ export default function MembershipPage() {
                     target="_blank"
                     rel="noreferrer"
                     className={primaryButtonClass}
+                    style={primaryButtonStyle}
                   >
                     Open membership application
                   </a>
@@ -203,6 +208,7 @@ export default function MembershipPage() {
                   target="_blank"
                   rel="noreferrer"
                   className={primaryButtonClass}
+                  style={primaryButtonStyle}
                 >
                   Start the application
                 </a>
