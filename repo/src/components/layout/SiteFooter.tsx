@@ -9,6 +9,7 @@ const coreFooterLinks = [
   { label: "Doulas", href: "/doulas" },
   { label: "Membership", href: "/membership" },
   { label: "Events", href: "/events" },
+  { label: "News", href: "/news" },
   { label: "Resources", href: "/resources" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" }
@@ -16,7 +17,8 @@ const coreFooterLinks = [
 
 const supportingFooterLinks = [
   { label: "Training", href: "/training" },
-  { label: "Partners", href: "/partners" }
+  { label: "Partners", href: "/partners" },
+  { label: "Membership guidelines", href: "/membership/guidelines" }
 ];
 
 const externalFooterLinks = [
@@ -45,7 +47,7 @@ export function SiteFooter() {
                 Red Deer Doula Association
               </p>
               <p className="text-sm text-white/78">
-                Central Alberta doula support and community-facing association resources.
+                Birth, bereavement, postpartum, and lifecycle doula support across Central Alberta.
               </p>
             </div>
           </div>
