@@ -98,6 +98,12 @@ export default function MembershipPage() {
                     Open membership application
                   </a>
                   <Link
+                    href="/membership/guidelines"
+                    className="inline-flex rounded-full border border-border px-5 py-3 text-sm font-semibold text-primary transition hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  >
+                    Review guidelines
+                  </Link>
+                  <Link
                     href="/contact"
                     className="inline-flex rounded-full border border-border px-5 py-3 text-sm font-semibold text-primary transition hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   >
@@ -158,6 +164,12 @@ export default function MembershipPage() {
                     </li>
                   ))}
                 </ul>
+                <Link
+                  href="/membership/guidelines"
+                  className="inline-flex rounded-full border border-border px-5 py-3 text-sm font-semibold text-primary transition hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                >
+                  Read membership guideline orientation
+                </Link>
               </div>
             </SectionCard>
 
@@ -184,6 +196,12 @@ export default function MembershipPage() {
                   to be reviewed and represented. Final public listing language
                   should match the applicant&apos;s approved membership details.
                 </p>
+                <Link
+                  href="/full-spectrum"
+                  className="inline-flex rounded-full border border-border px-5 py-3 text-sm font-semibold text-primary transition hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                >
+                  Learn about full spectrum support
+                </Link>
               </div>
             </SectionCard>
           </section>
@@ -202,6 +220,12 @@ export default function MembershipPage() {
                   public profile. RDDA reviews applications, confirms membership
                   fit, and may add approved members to association spaces and
                   public listings after review and fee payment.
+                </p>
+                <p className="leading-7 text-muted-foreground">
+                  Approved members may also be connected with RDDA member or
+                  community spaces when appropriate. Public posts, website
+                  listings, and social sharing should follow RDDA&apos;s review and
+                  permission process.
                 </p>
                 <a
                   href={membershipApplicationUrl}
