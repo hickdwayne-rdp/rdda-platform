@@ -18,6 +18,7 @@ const coreFooterLinks = [
 const supportingFooterLinks = [
   { label: "Training", href: "/training" },
   { label: "Partners", href: "/partners" },
+  { label: "Full spectrum support", href: "/full-spectrum" },
   { label: "Membership guidelines", href: "/membership/guidelines" }
 ];
 
