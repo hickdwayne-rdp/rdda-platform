@@ -5,6 +5,8 @@ import { PageShell } from "@/components/layout/PageShell";
 import { SectionCard } from "@/components/ui/SectionCard";
 
 const membershipApplicationUrl = "https://form.jotform.com/" + "93258823040253";
+const primaryButtonClass =
+  "inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
 
 const applicationRequirements = [
   "Select the appropriate membership type and service categories.",
@@ -86,7 +88,7 @@ export default function MembershipPage() {
                     href={membershipApplicationUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-background transition hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    className={primaryButtonClass}
                   >
                     Open membership application
                   </a>
@@ -200,7 +202,7 @@ export default function MembershipPage() {
                   href={membershipApplicationUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-background transition hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  className={primaryButtonClass}
                 >
                   Start the application
                 </a>
