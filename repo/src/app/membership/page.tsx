@@ -61,6 +61,33 @@ const socialLinks = [
   }
 ];
 
+const futureMemberWorkflows = [
+  {
+    title: "Member portal planning",
+    href: "/member-portal",
+    description:
+      "A future private area for approved member access, association updates, and member-only tools."
+  },
+  {
+    title: "Profile update planning",
+    href: "/profile-updates",
+    description:
+      "A future review path for keeping approved public doula profile information current."
+  },
+  {
+    title: "Event review planning",
+    href: "/event-review",
+    description:
+      "A future review process for public education, association, and community update requests."
+  },
+  {
+    title: "Payment planning",
+    href: "/payments",
+    description:
+      "A future payment path for membership fees, receipts, and payment-provider setup."
+  }
+];
+
 export default function MembershipPage() {
   return (
     <PageShell>
@@ -268,6 +295,41 @@ export default function MembershipPage() {
               </div>
             </SectionCard>
           </section>
+
+          <SectionCard>
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                  Future member tools
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                  Planning pages for future member workflows
+                </h2>
+                <p className="max-w-3xl leading-7 text-muted-foreground">
+                  These pages outline possible future tools without turning on
+                  accounts, profile editing, event review tools, database
+                  workflows, or payment processing yet.
+                </p>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-2">
+                {futureMemberWorkflows.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="rounded-[1.25rem] border border-border bg-background p-5 transition hover:border-primary/60 hover:bg-primary/5"
+                  >
+                    <h3 className="text-lg font-semibold tracking-tight text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 leading-7 text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </SectionCard>
         </main>
       </PageContainer>
     </PageShell>
