@@ -175,8 +175,8 @@ export function DoulaDirectory({ profiles }: { profiles: DoulaDirectoryProfile[]
             onClick={() => setSortMode(option.value)}
             className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${
               sortMode === option.value
-                ? "border-secondary bg-secondary text-white shadow-sm"
-                : "border-[var(--border)] bg-white/80 text-primary hover:border-secondary"
+                ? "border-primary bg-primary text-white shadow-sm"
+                : "border-[var(--border)] bg-white/80 text-primary hover:border-primary"
             }`}
           >
             {option.label}
