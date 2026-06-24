@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export type DoulaDirectoryProfile = {
   name: string;
@@ -30,7 +30,33 @@ const filters = [
   "Associate",
 ];
 
+const sortOptions = [
+  { label: "Randomized", value: "random" },
+  { label: "Alphabetical", value: "alphabetical" },
+] as const;
+
+type SortMode = (typeof sortOptions)[number]["value"];
+
 const normalize = (value: string) => value.toLowerCase().trim();
+
+const sortProfilesAlphabetically = (profiles: DoulaDirectoryProfile[]) =>
+  [...profiles].sort((firstProfile, secondProfile) =>
+    firstProfile.name.localeCompare(secondProfile.name),
+  );
+
+const shuffleProfiles = (profiles: DoulaDirectoryProfile[]) => {
+  const shuffledProfiles = [...profiles];
+
+  for (let index = shuffledProfiles.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [shuffledProfiles[index], shuffledProfiles[swapIndex]] = [
+      shuffledProfiles[swapIndex],
+      shuffledProfiles[index],
+    ];
+  }
+
+  return shuffledProfiles;
+};
 
 const getProfileImageZoom = (profile: DoulaDirectoryProfile) => {
   if (profile.imageZoom) {
@@ -71,11 +97,25 @@ function ProfileDetail({ label, value }: ProfileDetailProps) {
 export function DoulaDirectory({ profiles }: { profiles: DoulaDirectoryProfile[] }) {
   const [query, setQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState("All");
+  const [sortMode, setSortMode] = useState<SortMode>("random");
+  const [randomizedProfiles, setRandomizedProfiles] = useState(profiles);
+
+  useEffect(() => {
+    setRandomizedProfiles(shuffleProfiles(profiles));
+  }, [profiles]);
+
+  const orderedProfiles = useMemo(() => {
+    if (sortMode === "alphabetical") {
+      return sortProfilesAlphabetically(profiles);
+    }
+
+    return randomizedProfiles;
+  }, [profiles, randomizedProfiles, sortMode]);
 
   const filteredProfiles = useMemo(() => {
     const normalizedQuery = normalize(query);
 
-    return profiles.filter((profile) => {
+    return orderedProfiles.filter((profile) => {
       const filterMatches =
         activeFilter === "All" || profile.categories.includes(activeFilter);
 
@@ -94,7 +134,7 @@ export function DoulaDirectory({ profiles }: { profiles: DoulaDirectoryProfile[]
 
       return filterMatches && searchableText.includes(normalizedQuery);
     });
-  }, [activeFilter, query, profiles]);
+  }, [activeFilter, orderedProfiles, query]);
 
   return (
     <div className="space-y-8">
@@ -128,6 +168,21 @@ export function DoulaDirectory({ profiles }: { profiles: DoulaDirectoryProfile[]
             }`}
           >
             {filter}
+          </button>
+        ))}
+        <span className="mx-1 hidden h-9 w-px bg-[var(--border)] sm:block" />
+        {sortOptions.map((option) => (
+          <button
+            key={option.value}
+            type="button"
+            onClick={() => setSortMode(option.value)}
+            className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${
+              sortMode === option.value
+                ? "border-secondary bg-secondary text-white shadow-sm"
+                : "border-[var(--border)] bg-white/80 text-primary hover:border-secondary"
+            }`}
+          >
+            {option.label}
           </button>
         ))}
       </div>
