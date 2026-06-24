@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 export type DoulaDirectoryProfile = {
   name: string;
@@ -98,11 +98,8 @@ export function DoulaDirectory({ profiles }: { profiles: DoulaDirectoryProfile[]
   const [query, setQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState("All");
   const [sortMode, setSortMode] = useState<SortMode>("random");
-  const [randomizedProfiles, setRandomizedProfiles] = useState(profiles);
 
-  useEffect(() => {
-    setRandomizedProfiles(shuffleProfiles(profiles));
-  }, [profiles]);
+  const randomizedProfiles = useMemo(() => shuffleProfiles(profiles), [profiles]);
 
   const orderedProfiles = useMemo(() => {
     if (sortMode === "alphabetical") {
