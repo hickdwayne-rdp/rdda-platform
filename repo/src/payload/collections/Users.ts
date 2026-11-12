@@ -1,8 +1,23 @@
-﻿import type { CollectionConfig } from 'payload'
+import type { CollectionConfig } from 'payload'
+
+import { inviteDoula } from '../inviteDoula'
 
 export const Users: CollectionConfig = {
   slug: 'users',
   auth: true,
+  endpoints: [inviteDoula],
+  hooks: {
+    afterRead: [
+      ({ doc, req }) => {
+        // Payload's password reset reads the account with field access overridden.
+        if (req.payloadAPI !== 'local' && req.user?.role !== 'admin' &&
+            req.user?.role !== 'siteManager') {
+          delete doc.notes
+        }
+        return doc
+      },
+    ],
+  },
   admin: {
     useAsTitle: 'email',
     defaultColumns: ['email', 'firstName', 'lastName', 'role', 'activeStatus'],

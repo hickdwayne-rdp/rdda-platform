@@ -22,6 +22,9 @@ const dirname = path.dirname(filename)
 export default buildConfig({
   admin: {
     user: Users.slug,
+    components: {
+      beforeDashboard: ['./src/payload/DoulaInvitationCard#DoulaInvitationCard'],
+    },
     importMap: {
       baseDir: path.resolve(dirname),
     },
