@@ -2,6 +2,10 @@ import type { NextConfig } from "next"
 import { withPayload } from "@payloadcms/next/withPayload"
 
 const nextConfig: NextConfig = {
+  outputFileTracingIncludes: {
+    '/admin/*': ['./node_modules/@img/sharp-libvips-linux-x64/lib/**/*'],
+    '/api/*': ['./node_modules/@img/sharp-libvips-linux-x64/lib/**/*'],
+  },
   async headers() {
     return [
       {
